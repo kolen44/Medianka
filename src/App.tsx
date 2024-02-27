@@ -85,7 +85,7 @@ function App() {
 			<video autoPlay id='video' />
 			<Canvas
 				style={{
-					backgroundColor: 'purple',
+					backgroundColor: 'beige',
 					height: 400,
 				}}
 				camera={{

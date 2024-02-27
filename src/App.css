@@ -12,4 +12,9 @@ video {
 
 input {
 	width: 480px;
+	color: #212529;
+	opacity: 0.4;
+	border-color: #bdbdbd;
+	outline: 0;
+	box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
 }

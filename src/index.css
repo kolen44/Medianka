@@ -3,3 +3,8 @@ body {
 	height: 100%;
 	background-color: beige;
 }
+
+.input-for-persona::placeholder {
+	color: #212529;
+	opacity: 0.4;
+}
