@@ -1,17 +1,21 @@
-import { FaceLandmarker, FilesetResolver } from '@mediapipe/tasks-vision'
+import {
+	Category,
+	FaceLandmarker,
+	FilesetResolver,
+} from '@mediapipe/tasks-vision'
 import { useGLTF } from '@react-three/drei'
 import { Canvas, useFrame, useGraph } from '@react-three/fiber'
 import { useEffect } from 'react'
-import { Color, Euler, Matrix4 } from 'three'
+import { Color, Euler, Matrix4, SkinnedMesh } from 'three'
 import './App.css'
 
 let video: HTMLVideoElement,
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	faceLandmarker: FaceLandmarker,
 	lastVideoTime = -1,
-	headMesh: any,
+	headMesh: SkinnedMesh,
 	rotation: Euler,
-	blandshapes: any[] = []
+	blandshapes: Category[] = []
 
 function App() {
 	function handleOnChange() {}
@@ -48,12 +52,16 @@ function App() {
 			const result = faceLandmarker.detectForVideo(video, nowInMs)
 			if (
 				result.facialTransformationMatrixes &&
-				result.facialTransformationMatrixes.length > 0
+				result.facialTransformationMatrixes.length > 0 &&
+				result.faceBlendshapes &&
+				result.faceBlendshapes.length > 0
 			) {
 				const matrix = new Matrix4().fromArray(
 					result.facialTransformationMatrixes![0].data
 				)
 				rotation = new Euler().setFromRotationMatrix(matrix)
+
+				blandshapes = result.faceBlendshapes[0].categories
 			}
 		}
 		requestAnimationFrame(predict)
@@ -103,10 +111,19 @@ function Avatar() {
 	const { nodes } = useGraph(avatar.scene)
 
 	useEffect(() => {
-		headMesh = nodes.Wolf3D_Avatar
+		headMesh = nodes.Wolf3D_Avatar as SkinnedMesh
 	}, [nodes])
 
 	useFrame((_, delta) => {
+		if (headMesh !== 0) {
+			blandshapes.forEach(blandshape => {
+				let index = headMesh.morphTargetDictionary![blandshape.categoryName]
+				if (index >= 0) {
+					headMesh.morphTargetInfluences![index] = blandshape.score
+				}
+			})
+		}
+
 		nodes.Head.rotation.set(
 			rotation.x / 2.86,
 			rotation.y / 2.86,
