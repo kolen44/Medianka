@@ -1,14 +1,17 @@
 import { FaceLandmarker, FilesetResolver } from '@mediapipe/tasks-vision'
 import { useGLTF } from '@react-three/drei'
-import { Canvas, useGraph } from '@react-three/fiber'
+import { Canvas, useFrame, useGraph } from '@react-three/fiber'
 import { useEffect } from 'react'
-import { Color } from 'three'
+import { Color, Euler, Matrix4 } from 'three'
 import './App.css'
 
 let video: HTMLVideoElement,
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	faceLandmarker: FaceLandmarker,
-	lastVideoTime = -1
+	lastVideoTime = -1,
+	headMesh: any,
+	rotation: Euler,
+	blandshapes: any[] = []
 
 function App() {
 	function handleOnChange() {}
@@ -43,7 +46,15 @@ function App() {
 		if (lastVideoTime !== video.currentTime) {
 			lastVideoTime = video.currentTime
 			const result = faceLandmarker.detectForVideo(video, nowInMs)
-			console.log(result)
+			if (
+				result.facialTransformationMatrixes &&
+				result.facialTransformationMatrixes.length > 0
+			) {
+				const matrix = new Matrix4().fromArray(
+					result.facialTransformationMatrixes![0].data
+				)
+				rotation = new Euler().setFromRotationMatrix(matrix)
+			}
 		}
 		requestAnimationFrame(predict)
 	}
@@ -90,6 +101,29 @@ function Avatar() {
 		'https://models.readyplayer.me/65ddfac21699818a1b71f6e3.glb?morphTargets=ARKit&textureAtlas=1024'
 	)
 	const { nodes } = useGraph(avatar.scene)
+
+	useEffect(() => {
+		headMesh = nodes.Wolf3D_Avatar
+	}, [nodes])
+
+	useFrame((_, delta) => {
+		nodes.Head.rotation.set(
+			rotation.x / 2.86,
+			rotation.y / 2.86,
+			rotation.z / 2.86
+		)
+		nodes.Neck.rotation.set(
+			rotation.x / 2.86,
+			rotation.y / 2.86,
+			rotation.z / 2.86
+		)
+		nodes.Spine1.rotation.set(
+			rotation.x / 2.86,
+			rotation.y / 2.86,
+			rotation.z / 2.86
+		)
+	})
+
 	return <primitive object={avatar.scene} position={[0, -1.65, 4]} />
 }
 
