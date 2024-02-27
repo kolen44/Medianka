@@ -5,7 +5,7 @@ import {
 } from '@mediapipe/tasks-vision'
 import { useGLTF } from '@react-three/drei'
 import { Canvas, useFrame, useGraph } from '@react-three/fiber'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Color, Euler, Matrix4, SkinnedMesh } from 'three'
 import './App.css'
 
@@ -18,7 +18,12 @@ let video: HTMLVideoElement,
 	blandshapes: Category[] = []
 
 function App() {
-	function handleOnChange() {}
+	const [url, setUrl] = useState<string>(
+		'https://models.readyplayer.me/65ddfac21699818a1b71f6e3.glb'
+	)
+	function handleOnChange(e: any) {
+		setUrl(e.target.value)
+	}
 
 	const setup = async () => {
 		const vision = await FilesetResolver.forVisionTasks(
@@ -98,16 +103,14 @@ function App() {
 					intensity={0.5}
 				/>
 				<ambientLight intensity={0.5} />
-				<Avatar />
+				<Avatar url={url} />
 			</Canvas>
 		</div>
 	)
 }
 
-function Avatar() {
-	const avatar = useGLTF(
-		'https://models.readyplayer.me/65ddfac21699818a1b71f6e3.glb?morphTargets=ARKit&textureAtlas=1024'
-	)
+function Avatar({ url }: { url: string }) {
+	const avatar = useGLTF(`${url}?morphTargets=ARKit&textureAtlas=1024`)
 	const { nodes } = useGraph(avatar.scene)
 
 	useEffect(() => {
