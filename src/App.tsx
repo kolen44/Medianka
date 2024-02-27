@@ -6,14 +6,14 @@ import {
 import { useGLTF } from '@react-three/drei'
 import { Canvas, useFrame, useGraph } from '@react-three/fiber'
 import { useEffect, useState } from 'react'
-import { Color, Euler, Matrix4, SkinnedMesh } from 'three'
+import { Color, Euler, Matrix4 } from 'three'
 import './App.css'
 
 let video: HTMLVideoElement,
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	faceLandmarker: FaceLandmarker,
 	lastVideoTime = -1,
-	headMesh: SkinnedMesh,
+	headMesh: any[] = [],
 	rotation: Euler,
 	blandshapes: Category[] = []
 
@@ -114,36 +114,37 @@ function Avatar({ url }: { url: string }) {
 	const { nodes } = useGraph(avatar.scene)
 
 	useEffect(() => {
-		headMesh = nodes.Wolf3D_Avatar as SkinnedMesh
-	}, [nodes])
+		if (nodes.Wolf3D_Head) headMesh.push(nodes.Wolf3D_Head)
+		if (nodes.Wolf3D_Teeth) headMesh.push(nodes.Wolf3D_Teeth)
+		if (nodes.Wolf3D_Beard) headMesh.push(nodes.Wolf3D_Beard)
+		if (nodes.Wolf3D_Avatar) headMesh.push(nodes.Wolf3D_Avatar)
+		if (nodes.Wolf3D_Head_Custom) headMesh.push(nodes.Wolf3D_Head_Custom)
+	}, [nodes, url])
 
-	useFrame((_, delta) => {
-		if (headMesh !== 0) {
-			blandshapes.forEach(blandshape => {
-				let index = headMesh.morphTargetDictionary![blandshape.categoryName]
-				if (index >= 0) {
-					headMesh.morphTargetInfluences![index] = blandshape.score
-				}
+	useFrame(() => {
+		if (blandshapes.length > 0) {
+			blandshapes.forEach(element => {
+				headMesh.forEach(mesh => {
+					const index = mesh.morphTargetDictionary[element.categoryName]
+					if (index >= 0) {
+						mesh.morphTargetInfluences[index] = element.score
+					}
+				})
 			})
+
+			nodes.Head.rotation.set(rotation.x, rotation.y, rotation.z)
+			nodes.Neck.rotation.set(
+				rotation.x / 5 + 0.3,
+				rotation.y / 5,
+				rotation.z / 5
+			)
+			nodes.Spine2.rotation.set(
+				rotation.x / 10,
+				rotation.y / 10,
+				rotation.z / 10
+			)
 		}
-
-		nodes.Head.rotation.set(
-			rotation.x / 2.86,
-			rotation.y / 2.86,
-			rotation.z / 2.86
-		)
-		nodes.Neck.rotation.set(
-			rotation.x / 2.86,
-			rotation.y / 2.86,
-			rotation.z / 2.86
-		)
-		nodes.Spine1.rotation.set(
-			rotation.x / 2.86,
-			rotation.y / 2.86,
-			rotation.z / 2.86
-		)
 	})
-
 	return <primitive object={avatar.scene} position={[0, -1.65, 4]} />
 }
 
