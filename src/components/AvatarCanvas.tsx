@@ -1,6 +1,13 @@
-import { Html, OrbitControls, useAnimations, useGLTF } from '@react-three/drei'
+import {
+	Html,
+	OrbitControls,
+	Preload,
+	useAnimations,
+	useGLTF,
+} from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
+import { MyLoader } from './MyLoader'
 
 const Avatar = () => {
 	const [url, setUrl] = useState('/praying.glb')
@@ -19,8 +26,10 @@ const Avatar = () => {
 			<primitive
 				object={avatar.scene}
 				scale={2}
-				position={[-1, -2, 0]}
-				rotation-y={0.5}
+				position-y={-2}
+				rotation-y={-0.5}
+				position-x={[-1]}
+				dispose={null}
 			/>
 			<Html position={[-3.7, 0.3, 0]}>
 				<button
@@ -38,12 +47,15 @@ const Avatar = () => {
 
 export default function AvatarCanvas() {
 	return (
-		<Canvas>
-			<pointLight position={[0, 1.5, 0]} intensity={1.5} />
-			<ambientLight intensity={0.5} position={[1, 1.8, 2]} />
-			<OrbitControls position={[1, 1, 1]} />
+		<Canvas dpr={[0, 2]}>
+			<ambientLight intensity={0.5} />
+			<pointLight position={[1, 1, 1]} />
+			<OrbitControls enabled={true} />
 
-			<Avatar />
+			<Suspense fallback={<MyLoader />}>
+				<Avatar />
+			</Suspense>
+			<Preload all />
 		</Canvas>
 	)
 }
