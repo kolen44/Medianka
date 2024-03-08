@@ -3,7 +3,7 @@ import { Canvas } from '@react-three/fiber'
 import { useEffect, useState } from 'react'
 
 const Avatar = () => {
-	const [url, setUrl] = useState('/Defeated.glb')
+	const [url, setUrl] = useState('/praying.glb')
 	const avatar = useGLTF(url)
 	const [index, setIndex] = useState(1)
 	const { actions, names } = useAnimations(avatar.animations, avatar.scene)
