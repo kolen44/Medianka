@@ -1,8 +1,8 @@
 import {
+	Environment,
 	Html,
 	OrbitControls,
 	Preload,
-	TransformControls,
 	useAnimations,
 	useGLTF,
 } from '@react-three/drei'
@@ -16,32 +16,30 @@ const Avatar = () => {
 	const [index, setIndex] = useState(1)
 	const { actions, names } = useAnimations(avatar.animations, avatar.scene)
 	const [isClicked, setClicked] = useState(false)
+
 	useEffect(() => {
 		actions[names[index]]?.reset().fadeIn(0.5).play()
 		return () => {
 			actions[names[index]]?.fadeOut(0.5)
 		}
 	}, [index, actions, names])
+
 	useLayoutEffect(() => {
 		Object.values(avatar.nodes).forEach(
 			node => node && (node.receiveShadow = node.castShadow = true)
 		)
 	}, [avatar.nodes, avatar.materials])
+
 	console.log(avatar)
+
 	return (
 		<group>
-			<ambientLight
-				intensity={100}
-				position={avatar.scene.children[0].position}
-			/>
-			<TransformControls />
 			<primitive
-				metalness={1}
+				material={avatar.materials.Wolf3D_Bodymat}
 				object={avatar.scene}
 				scale={2}
-				rotation-y={-0.5}
-				position-x={[-1]}
-				position-z={[-2]}
+				rotation={[0, -0.5, 0]} // Предполагая, что вам нужен поворот по оси Y
+				position={[-1, 0, -2]} // Предполагая, что модель должна быть смещена на -1 по X и -2 по Z
 			/>
 			<Html position={[-3.7, 0.3, 0]}>
 				<button
@@ -59,13 +57,13 @@ const Avatar = () => {
 
 export default function AvatarCanvas() {
 	return (
-		<Canvas dpr={[0, 2]}>
+		<Canvas dpr={[1, 2]}>
 			<ambientLight intensity={0.5} />
-			<pointLight position={[1, 1, 1]} />
+			<pointLight position={[10, 10, 10]} intensity={1.5} />
 			<OrbitControls enabled={true} />
-
 			<Suspense fallback={<MyLoader />}>
 				<Avatar />
+				<Environment preset='sunset' background={false} />
 			</Suspense>
 			<Preload all />
 		</Canvas>
