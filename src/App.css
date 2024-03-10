@@ -134,3 +134,8 @@ button:hover {
 		margin-bottom: 0;
 	}
 }
+
+.canvas3d {
+	height: 100vh;
+	width: 100vw;
+}
