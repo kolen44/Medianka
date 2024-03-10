@@ -11,7 +11,7 @@ export default function Experience() {
 				gl={{ antialias: false, stencil: false }}
 				camera={{ position: [5, 0, 0], fov: 80 }}
 			>
-				<OrbitControls />
+				{window.innerWidth > 768 && <OrbitControls />}
 				<spotLight
 					angle={0.12}
 					penumbra={0.1}

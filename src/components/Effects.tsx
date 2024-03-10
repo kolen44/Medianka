@@ -23,7 +23,7 @@ export function Effects() {
 		blurExponent: { value: 10, min: 0, max: 20 },
 		blurKernelSize: { value: 1, min: 0, max: 10 },
 		rayStep: { value: 0.5, min: 0, max: 1 },
-		intensity: { value: 1, min: 0, max: 5 },
+		intensity: { value: 0, min: 0, max: 5 },
 		maxRoughness: { value: 1, min: 0, max: 1 },
 		jitter: { value: 0.3, min: 0, max: 5 },
 		jitterSpread: { value: 0.25, min: 0, max: 1 },

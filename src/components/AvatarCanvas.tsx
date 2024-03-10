@@ -33,6 +33,7 @@ const Avatar = () => {
 			/>
 			<Html>
 				<button
+					className='counter-button'
 					onClick={() => {
 						setIndex((index + 1) % names.length)
 						setClicked(!isClicked)
