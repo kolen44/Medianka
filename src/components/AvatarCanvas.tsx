@@ -1,12 +1,4 @@
-import {
-	Environment,
-	Html,
-	OrbitControls,
-	Preload,
-	useAnimations,
-	useGLTF,
-} from '@react-three/drei'
-import { Canvas } from '@react-three/fiber'
+import { Environment, Html, useAnimations, useGLTF } from '@react-three/drei'
 import { Suspense, useEffect, useLayoutEffect, useState } from 'react'
 import { MyLoader } from './MyLoader'
 
@@ -35,13 +27,11 @@ const Avatar = () => {
 	return (
 		<group>
 			<primitive
-				material={avatar.materials.Wolf3D_Bodymat}
 				object={avatar.scene}
-				scale={2}
-				rotation={[0, -0.5, 0]} // Предполагая, что вам нужен поворот по оси Y
-				position={[-1, 0, -2]} // Предполагая, что модель должна быть смещена на -1 по X и -2 по Z
+				rotation={[0, 2, 0]}
+				position={[-3, -0.39, 0.2]}
 			/>
-			<Html position={[-3.7, 0.3, 0]}>
+			<Html>
 				<button
 					onClick={() => {
 						setIndex((index + 1) % names.length)
@@ -57,15 +47,9 @@ const Avatar = () => {
 
 export default function AvatarCanvas() {
 	return (
-		<Canvas dpr={[1, 2]}>
-			<ambientLight intensity={0.5} />
-			<pointLight position={[10, 10, 10]} intensity={1.5} />
-			<OrbitControls enabled={true} />
-			<Suspense fallback={<MyLoader />}>
-				<Avatar />
-				<Environment preset='sunset' background={false} />
-			</Suspense>
-			<Preload all />
-		</Canvas>
+		<Suspense fallback={<MyLoader />}>
+			<Avatar />
+			<Environment preset='sunset' background={false} />
+		</Suspense>
 	)
 }

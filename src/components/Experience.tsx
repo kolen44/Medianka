@@ -1,6 +1,7 @@
 import { Environment, Gltf, OrbitControls } from '@react-three/drei'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { ReactNode } from 'react'
+import AvatarCanvas from './AvatarCanvas'
 import { Effects } from './Effects'
 
 export default function Experience() {
@@ -25,6 +26,7 @@ export default function Experience() {
 				<Effects />
 				<ambientLight intensity={0.5} color='white' />
 				<Gltf src='/hall-transformed.glb' position={[0, 0.98, 0]} />
+				<AvatarCanvas />
 				<Rig from={-Math.PI / 2} to={Math.PI / 2.66} />
 			</Canvas>
 		</>
