@@ -1,33 +1,36 @@
 import { Environment, Html, useAnimations, useGLTF } from '@react-three/drei'
 import { Suspense, useEffect, useLayoutEffect, useState } from 'react'
 import { MyLoader } from './MyLoader'
+import { Group } from 'three';
 
-const Avatar = () => {
-	const [url, setUrl] = useState('/praying.glb')
+const Avatar: React.FC = () => {
+	const [url, setUrl] = useState<string>('/praying.glb')
 	const avatar = useGLTF(url)
-	const [index, setIndex] = useState(1)
+	const [index, setIndex] = useState<number>(1)
 	const { actions, names } = useAnimations(avatar.animations, avatar.scene)
-	const [isClicked, setClicked] = useState(false)
+	const [isClicked, setClicked] = useState<boolean>(false)
 
 	useEffect(() => {
-		actions[names[index]]?.reset().fadeIn(0.5).play()
+		const actionName = names[index];
+		const action = actions[actionName];
+		action?.reset().fadeIn(0.5).play();
 		return () => {
-			actions[names[index]]?.fadeOut(0.5)
-		}
-	}, [index, actions, names])
+			action?.fadeOut(0.5);
+		};
+	}, [index, actions, names]);
 
 	useLayoutEffect(() => {
-		Object.values(avatar.nodes).forEach(
-			node => node && (node.receiveShadow = node.castShadow = true)
-		)
-	}, [avatar.nodes, avatar.materials])
-
-	console.log(avatar)
+		Object.values(avatar.nodes).forEach((node) => {
+			if (node) {
+				node.receiveShadow = node.castShadow = true;
+			}
+		});
+	}, [avatar.nodes, avatar.materials]);
 
 	return (
 		<group>
 			<primitive
-				object={avatar.scene}
+				object={avatar.scene as unknown as Group}
 				rotation={[0, 2, 0]}
 				position={[-3, -0.39, 0.2]}
 			/>
@@ -46,7 +49,7 @@ const Avatar = () => {
 	)
 }
 
-export default function AvatarCanvas() {
+export default function AvatarCanvas(): JSX.Element {
 	return (
 		<Suspense fallback={<MyLoader />}>
 			<Avatar />
