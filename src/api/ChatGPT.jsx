@@ -1,6 +1,6 @@
 import OpenAI from 'openai'
 
-const CHATGPT_MODEL = 'gpt-3.5-turbo'
+const CHATGPT_MODEL = 'gpt-3.5-turbo-16k'
 
 const ROLES = {
 	ASSISTANT: 'assistant',
@@ -14,21 +14,24 @@ const openai = new OpenAI({
 })
 
 const getMessage = text => `
-на основе этого текста постарайся предположить какое действие из представленных имел ввиду пользователь . ответ дай цифрой без букв.
-1.прыжок
-2.плавание
-3. удар
+на основе следующего высказывания -  ${text} , определи что имел ввиду его автор из предложенных вариантов : 
+1. прыжок
+2. танец
+3. удар. 
+Ответ верни цифрой
+
 `
 
 export async function ChatGPT(text) {
 	const messages = [
 		{
 			role: ROLES.SYSTEM,
-			content: 'Ты опытный человек который определяет действия ',
+			content:
+				'Ты опытный человек который определяет значения выражений и дает ответ только в цифрах',
 		},
 		{
 			role: ROLES.USER,
-			content: getMessage(),
+			content: getMessage(text),
 		},
 	]
 	try {
