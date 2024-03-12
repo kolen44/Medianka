@@ -12,7 +12,7 @@ module.exports = {
 	settings: { react: { version: '18.2' } },
 	plugins: ['react-refresh'],
 	rules: {
-		'react/no-unknown-property': ['error', { ignore: ['jsx'] }],
+		'react/no-unknown-property': ['error', { ignore: 'jsx' }],
 		'react/jsx-no-target-blank': 'off',
 		'react-refresh/only-export-components': [
 			'warn',

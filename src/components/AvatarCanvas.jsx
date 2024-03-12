@@ -1,10 +1,15 @@
-import { Environment, Html, useAnimations, useGLTF } from '@react-three/drei'
+import {
+	Environment,
+	Gltf,
+	Html,
+	useAnimations,
+	useGLTF,
+} from '@react-three/drei'
 import { Suspense, useEffect, useLayoutEffect, useState } from 'react'
 import { MyLoader } from './MyLoader'
 
 const Avatar = () => {
-	const [url, setUrl] = useState('/praying.glb')
-	const avatar = useGLTF(url)
+	const avatar = useGLTF('/praying.glb')
 	const [index, setIndex] = useState(1)
 	const { actions, names } = useAnimations(avatar.animations, avatar.scene)
 	const [isClicked, setClicked] = useState(false)
@@ -28,10 +33,10 @@ const Avatar = () => {
 
 	return (
 		<group>
-			<primitive
-				object={avatar.scene}
+			<Gltf
+				src='/praying.glb'
+				position={[-2.2, -0.4, 0]}
 				rotation={[0, 2, 0]}
-				position={[-3, -0.39, 0.2]}
 			/>
 			<Html>
 				<button
