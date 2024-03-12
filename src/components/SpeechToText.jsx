@@ -2,11 +2,9 @@ import 'babel-polyfill'
 import SpeechRecognition, {
 	useSpeechRecognition,
 } from 'react-speech-recognition'
-import { YaGPT } from '../api/YandexGPT'
+import { main } from '../api/YandexGPT'
 
 export default function SpeechToText() {
-	const res = YaGPT()
-	console.log(res)
 	const {
 		transcript,
 		// eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -16,8 +14,10 @@ export default function SpeechToText() {
 	} = useSpeechRecognition()
 
 	if (!browserSupportsSpeechRecognition) {
-		console.log('lox')
+		console.log("Your browser does'nt support speech recognition")
 	}
+	main()
+
 	return (
 		<>
 			<div className='main-content'>
