@@ -3,6 +3,7 @@ import { YaGPT } from '../api/YandexGPT'
 import { useStores } from '../data/store/useStore'
 
 export const TypingBox = () => {
+	let loadingSpeak = useStores(state => state.loadingSpeak)
 	const [question, setQuestion] = useState('')
 	const askAI = useStores(state => state.chatGPTResponseBoolean)
 	const setPromptText = useStores(state => state.setPromptText)
@@ -14,7 +15,7 @@ export const TypingBox = () => {
 		setQuestion('')
 	}
 	return (
-		<div className='z-10 max-w-[600px] flex space-y-6 flex-col bg-gradient-to-tr  from-slate-300/30 via-gray-400/30 to-slate-600-400/30 p-4  backdrop-blur-md rounded-xl border-slate-100/30 border'>
+		<div className='z-10 max-w-[600px] flex space-y-6 flex-col bg-gradient-to-tr  from-slate-300/30 via-gray-400/30 to-slate-600-400/30 p-4  backdrop-blur-md rounded-xl border-slate-100/30 border mb-7'>
 			<div>
 				<h2 className='text-white font-bold text-xl'>
 					Хотите спросить нейросеть?
@@ -25,7 +26,7 @@ export const TypingBox = () => {
 				</p>
 			</div>
 
-			{askAI ? (
+			{askAI || loadingSpeak ? (
 				<div className='flex justify-center items-center'>
 					<span className='relative flex h-4 w-4'>
 						<span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75'></span>

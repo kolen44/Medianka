@@ -8,6 +8,7 @@ import { useStores } from '../data/store/useStore'
 import { TypingBox } from './TypingBox'
 
 export default function SpeechToText() {
+	const setLoadingSpeak = useStores(state => state.setLoadingSpeak)
 	let chatGPTResponseBoolean = useStores(state => state.chatGPTResponseBoolean)
 	const responseText = useStores(state => state.responseText)
 	const setTrueResponse = useStores(set => set.setTrueResponse)
@@ -44,17 +45,22 @@ export default function SpeechToText() {
 		<>
 			<div className='main-content   from-slate-300/30 via-gray-400/30 to-slate-600-400/30 p-4  backdrop-blur-md rounded-xl border-slate-100/30 border'>
 				<TypingBox />
-
-				{responseText ? transcript : responseText}
+				{transcript ? transcript : 'Голосовой ввод также поддерживается!'}
 				<div className='btn-style '>
 					<button
 						onClick={() => {
-							SpeechRecognition.startListening(), setPromptText(false)
+							SpeechRecognition.startListening(), setLoadingSpeak(true)
 						}}
 					>
 						Начать запись
 					</button>
-					<button onClick={SpeechRecognition.stopListening}>Закончить</button>
+					<button
+						onClick={() => {
+							SpeechRecognition.stopListening(), setLoadingSpeak(false)
+						}}
+					>
+						Закончить
+					</button>
 					<button onClick={YaGPTSend}>Отправить</button>
 				</div>
 			</div>
