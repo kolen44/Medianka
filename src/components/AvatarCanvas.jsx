@@ -1,4 +1,4 @@
-import { Environment, Html, useAnimations, useGLTF } from '@react-three/drei'
+import { Environment, useAnimations, useGLTF } from '@react-three/drei'
 import { Suspense, useEffect, useLayoutEffect, useState } from 'react'
 import { MyLoader } from './MyLoader'
 
@@ -27,7 +27,7 @@ const Avatar = () => {
 	return (
 		<group>
 			<Model url={'/praying.glb'} />
-			<Html>
+			{/* <Html>
 				<button
 					className='counter-button'
 					onClick={() => {
@@ -37,7 +37,7 @@ const Avatar = () => {
 				>
 					Click me
 				</button>
-			</Html>
+			</Html> */}
 		</group>
 	)
 }

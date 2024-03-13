@@ -1,12 +1,18 @@
 import 'babel-polyfill'
-import { useState } from 'react'
 import SpeechRecognition, {
 	useSpeechRecognition,
 } from 'react-speech-recognition'
 import { ChatGPT } from '../api/ChatGPT'
+import { YaGPT } from '../api/YandexGPT'
+import { useStores } from '../data/store/useStore'
+import { TypingBox } from './TypingBox'
 
 export default function SpeechToText() {
-	const [isResponse, setIsResponse] = useState('')
+	let chatGPTResponseBoolean = useStores(state => state.chatGPTResponseBoolean)
+	const responseText = useStores(state => state.responseText)
+	const setTrueResponse = useStores(set => set.setTrueResponse)
+	const setPromptText = useStores(state => state.setPromptText)
+
 	const {
 		transcript,
 		// eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -27,18 +33,30 @@ export default function SpeechToText() {
 		}
 		console.log(response)
 	}
+	async function YaGPTSend(text) {
+		const response = await YaGPT(text)
+		setTrueResponse()
+		console.log(response)
+		resetTranscript()
+	}
 
 	return (
 		<>
-			<div className='main-content'>
-				{isResponse}
-				{transcript}
-				<div className='btn-style'>
-					<button onClick={SpeechRecognition.startListening}>Start</button>
-					<button onClick={SpeechRecognition.stopListening}>Stop</button>
-					<button onClick={resetTranscript}>Reset</button>
+			<div className='main-content   from-slate-300/30 via-gray-400/30 to-slate-600-400/30 p-4  backdrop-blur-md rounded-xl border-slate-100/30 border'>
+				<TypingBox />
+
+				{responseText ? transcript : responseText}
+				<div className='btn-style '>
+					<button
+						onClick={() => {
+							SpeechRecognition.startListening(), setPromptText(false)
+						}}
+					>
+						Начать запись
+					</button>
+					<button onClick={SpeechRecognition.stopListening}>Закончить</button>
+					<button onClick={YaGPTSend}>Отправить</button>
 				</div>
-				<button onClick={() => send(transcript)}>Send</button>
 			</div>
 		</>
 	)

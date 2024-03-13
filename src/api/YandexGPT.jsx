@@ -1,12 +1,10 @@
 import { YandexGPT } from '@langchain/yandex/llms'
 
-export async function YaGPT() {
+export async function YaGPT(text) {
 	const model = new YandexGPT({
-		apiKey: 'AQVNwgiAlimoySIAkOOEDB5XxpKx_W_ULoyABeA7',
-		folderID: 'b1gev18uirpgvlspbmj2',
+		apiKey: 'your token',
+		folderID: 'b1got6mvjila3lv39i94',
 	})
-	const res = await model.invoke([
-		'Translate "I love programming" into French.',
-	])
+	const res = await model.invoke([`${text}`])
 	return { res }
 }

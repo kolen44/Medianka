@@ -124,9 +124,7 @@ button:hover {
 	.btn-style {
 		min-height: 150px;
 		height: fit-content;
-		background-color: aliceblue;
 		display: flex;
-		align-items: end;
 	}
 
 	.btn-style button {
