@@ -1,10 +1,4 @@
-import {
-	Environment,
-	Gltf,
-	Html,
-	useAnimations,
-	useGLTF,
-} from '@react-three/drei'
+import { Environment, Html, useAnimations, useGLTF } from '@react-three/drei'
 import { Suspense, useEffect, useLayoutEffect, useState } from 'react'
 import { MyLoader } from './MyLoader'
 
@@ -30,14 +24,9 @@ const Avatar = () => {
 			}
 		})
 	}, [avatar.nodes, avatar.materials])
-
 	return (
 		<group>
-			<Gltf
-				src='/praying.glb'
-				position={[-2.2, -0.4, 0]}
-				rotation={[0, 2, 0]}
-			/>
+			<Model url={'/praying.glb'} />
 			<Html>
 				<button
 					className='counter-button'
@@ -50,6 +39,13 @@ const Avatar = () => {
 				</button>
 			</Html>
 		</group>
+	)
+}
+
+function Model({ url }) {
+	const { scene } = useGLTF(url)
+	return (
+		<primitive object={scene} position={[-2.2, -0.4, 0]} rotation={[0, 2, 0]} />
 	)
 }
 
