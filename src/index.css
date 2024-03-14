@@ -76,10 +76,12 @@ button:focus-visible {
   position: absolute;
   top: 20px;
   left: 20px;
+  padding: 10px;
 }
 
 .maps {
   position: absolute;
   top: 80px;
+  left: 20px;
   border-radius: 20px;
 }
