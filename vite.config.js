@@ -7,7 +7,7 @@ export default defineConfig({
 	server: {
 		proxy: {
 			'/api': {
-				target: 'https://api.openai.com/v1/chat/completions',
+				target: '*',
 				changeOrigin: true,
 			},
 		},
