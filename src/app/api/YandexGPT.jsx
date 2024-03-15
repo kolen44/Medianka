@@ -5,9 +5,9 @@ const handler = async (req, res) => {
 		{
 			method: 'POST',
 			headers: {
-				"Content-Type": "application/json",
-				"Authorization": `Api-Key AQVN36TkHw7jurY7R40QwNJEKOJm_I3SkreHDlpb`,
-				'x-folder-id': b1got6mvjila3lv39i94,
+				'Content-Type': 'application/json',
+				Authorization: `Api-Key AQVN36TkHw7jurY7R40QwNJEKOJm_I3SkreHDlpb`,
+				'x-folder-id': 'b1got6mvjila3lv39i94',
 			},
 			body: JSON.stringify({
 				modelUri: `gpt://${YANDEX_FOLDER_ID}/yandexgpt-lite`,
@@ -29,6 +29,7 @@ const handler = async (req, res) => {
 			}),
 		}
 	)
+	console.log(data)
 	const data = await response.json()
 	return res.end(JSON.parse(JSON.stringify(data)))
 }

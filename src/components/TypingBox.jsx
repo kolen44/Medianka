@@ -1,6 +1,5 @@
 'use client'
 import { useState } from 'react'
-import { YaGPT } from '../api/YandexGPT'
 import { useStores } from '../data/store/useStore'
 
 export const TypingBox = () => {
@@ -9,10 +8,33 @@ export const TypingBox = () => {
 	const askAI = useStores(state => state.chatGPTResponseBoolean)
 	const setPromptText = useStores(state => state.setPromptText)
 
-	const ask = async question => {
-		const response = await YaGPT(question)
-		console.log(question, response)
-		setPromptText(response)
+	const handleInputChange = (event) => {
+		setQuestion(event.target.value);
+	  };
+
+	const ask = async (question = 'kkk') => {
+		
+		console.log(question)
+		const url = '/api/YandexGPT'
+		setQuestion('lll')
+		let postBody = {
+			"draft_order": {
+				"line_items": [{
+					"text": "question"
+				}]
+			}
+		}
+		const res = await fetch(url, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(postBody),
+		})
+		console.log(res)
+		const final = await res.json()
+		console.log(final)
+		await setPromptText(final)
 		setQuestion('')
 	}
 	return (
@@ -39,8 +61,7 @@ export const TypingBox = () => {
 					<input
 						className='focus:outline focus:outline-white/80 flex-grow bg-slate-800/60 p-2 px-4 rounded-full text-white placeholder:text-white/50 shadow-inner shadow-slate-900/60'
 						placeholder='Когда был основан Кремль?'
-						value={question}
-						onChange={e => setQuestion(e.target.value)}
+						onChange={handleInputChange}
 						onKeyDown={e => {
 							if (e.key === 'Enter') {
 								ask()

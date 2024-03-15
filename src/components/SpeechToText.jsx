@@ -1,10 +1,9 @@
 'use client'
-import 'babel-polyfill'
+import 'idempotent-babel-polyfill'
 import SpeechRecognition, {
 	useSpeechRecognition,
 } from 'react-speech-recognition'
 import { ChatGPT } from '../api/ChatGPT'
-import { YaGPT } from '../api/YandexGPT'
 import { useStores } from '../data/store/useStore'
 import { TypingBox } from './TypingBox'
 
@@ -35,10 +34,18 @@ export default function SpeechToText() {
 		}
 		console.log(response)
 	}
-	async function YaGPTSend(text) {
-		const response = await YaGPT(text)
+	async function YaGPTSend(text = 'hi') {
+		const url = '/api/YandexGPT.js'
+		const res = await fetch(url, {
+			method: 'POST',
+			headers: {
+				"content-type": "application/json",
+			},
+			body: JSON.stringify({ "text": text }),
+		})
+		const final = res
 		setTrueResponse()
-		console.log(response)
+		console.log(final)
 		resetTranscript()
 	}
 
