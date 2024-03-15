@@ -15,6 +15,7 @@ export default function SpeechToText() {
 	const setTrueResponse = useStores(set => set.setTrueResponse)
 	const setPromptText = useStores(state => state.setPromptText)
 	const setBlockquotesFromYandexGPT = useStores(state => state.setBlockquotesFromYandexGPT)
+	const setTimeToSpeak = useStores(state => state.setTimeToSpeak)
 
 	const {
 		transcript,
@@ -46,7 +47,12 @@ export default function SpeechToText() {
 			body: JSON.stringify({ "text": text }),
 		})
 		const final = await res.json()
-		if(final){setBlockquotesFromYandexGPT(final)}
+		if(final.length){setBlockquotesFromYandexGPT(final)
+			setTimeToSpeak(true)
+			const utterance =  new SpeechSynthesisUtterance(final)
+			window.speechSynthesis.speak(utterance)
+			
+		}
 		setTrueResponse()
 		console.log(final)
 		resetTranscript()
@@ -72,7 +78,7 @@ export default function SpeechToText() {
 					>
 						Закончить
 					</button>
-					<button onClick={YaGPTSend}>Отправить</button>
+					<button onClick={()=>{YaGPTSend(), setLoadingSpeak(false)}}>Отправить</button>
 				</div>
 				<ResponseBlockquote />
 			</div>

@@ -4,10 +4,16 @@ export const useStores = create((set, get) => ({
 	responseText: false,
 	blockquotesFromYandexGPT: '',
 	loadingSpeak: false,
+	timeToSpeak: false,
 	chatGPTResponseBoolean: false,
 	setBlockquotesFromYandexGPT: (text) => {
 		set(state => ({
 			blockquotesFromYandexGPT: text,
+		}))
+	},
+	setTimeToSpeak: (boolean) => {
+		set(state => ({
+			timeToSpeak: true,
 		}))
 	},
 	setTrueResponse: () => {

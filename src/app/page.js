@@ -1,3 +1,4 @@
+import 'regenerator-runtime/runtime'
 import Experience from '../components/Experience'
 import SpeechToText from '../components/SpeechToText'
 import '../styles/App.css'

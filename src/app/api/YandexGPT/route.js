@@ -5,7 +5,7 @@ export const POST = async (req, res) => {
 	const text = await req.json()
 console.log(text)
 const folder_id = 'b1got6mvjila3lv39i94'
-const yandexgpt_key = 'AQVN3doZKWTYcFVZd4CXQIgGKQ'
+const yandexgpt_key = 'AQVN0fDrPRcOI3DAGl5k'
 
 	try {
 		const response = await axios.post(

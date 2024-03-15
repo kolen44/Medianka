@@ -33,7 +33,10 @@ export const TypingBox = () => {
 		})
 		console.log(res)
 		const final = await res.json()
-		if(final){setBlockquotesFromYandexGPT(final)}
+		if(final){setBlockquotesFromYandexGPT(final)
+			const utterance =  new SpeechSynthesisUtterance(final)
+			window.speechSynthesis.speak(utterance) 
+		}
 		console.log(final)
 		await setPromptText(final)
 		setQuestion('')
