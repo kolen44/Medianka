@@ -43,7 +43,7 @@ export default function SpeechToText() {
 			},
 			body: JSON.stringify({ "text": text }),
 		})
-		const final = res
+		const final = await res.json()
 		setTrueResponse()
 		console.log(final)
 		resetTranscript()

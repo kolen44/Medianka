@@ -40,10 +40,10 @@ export const TypingBox = () => {
 	return (
 		<div className='z-10 max-w-[600px] flex space-y-6 flex-col bg-gradient-to-tr  from-slate-300/30 via-gray-400/30 to-slate-600-400/30 p-4  backdrop-blur-md rounded-xl border-slate-100/30 border mb-7'>
 			<div>
-				<h2 className='text-white font-bold text-xl'>
+				<h2 className='text-#797474 font-bold text-xl'>
 					Хотите спросить нейросеть?
 				</h2>
-				<p className='text-white/65'>
+				<p className='text-#4e4848/65'>
 					Скажите о чем бы вы хотели спросить нейросеть и она обязательно вам
 					поможет !
 				</p>
