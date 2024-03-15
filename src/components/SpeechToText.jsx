@@ -5,6 +5,7 @@ import SpeechRecognition, {
 } from 'react-speech-recognition'
 import { ChatGPT } from '../api/ChatGPT'
 import { useStores } from '../data/store/useStore'
+import ResponseBlockquote from './ResponseBlockquote'
 import { TypingBox } from './TypingBox'
 
 export default function SpeechToText() {
@@ -13,6 +14,7 @@ export default function SpeechToText() {
 	const responseText = useStores(state => state.responseText)
 	const setTrueResponse = useStores(set => set.setTrueResponse)
 	const setPromptText = useStores(state => state.setPromptText)
+	const setBlockquotesFromYandexGPT = useStores(state => state.setBlockquotesFromYandexGPT)
 
 	const {
 		transcript,
@@ -34,7 +36,7 @@ export default function SpeechToText() {
 		}
 		console.log(response)
 	}
-	async function YaGPTSend(text = 'hi') {
+	async function YaGPTSend(transcript) {
 		const url = '/api/YandexGPT.js'
 		const res = await fetch(url, {
 			method: 'POST',
@@ -44,6 +46,7 @@ export default function SpeechToText() {
 			body: JSON.stringify({ "text": text }),
 		})
 		const final = await res.json()
+		if(final){setBlockquotesFromYandexGPT(final)}
 		setTrueResponse()
 		console.log(final)
 		resetTranscript()
@@ -71,6 +74,7 @@ export default function SpeechToText() {
 					</button>
 					<button onClick={YaGPTSend}>Отправить</button>
 				</div>
+				<ResponseBlockquote />
 			</div>
 		</>
 	)

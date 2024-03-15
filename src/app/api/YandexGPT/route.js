@@ -2,9 +2,10 @@ import axios from 'axios'
 import { NextResponse } from 'next/server'
 
 export const POST = async (req, res) => {
-	const text = req.body.text | 'text'
+	const text = await req.json()
+console.log(text)
 const folder_id = 'b1got6mvjila3lv39i94'
-const yandexgpt_key = 'AQVN170ZNuJHpuN8ND1cVX5'
+const yandexgpt_key = 'AQVN3doZKWTYcFVZd4CXQIgGKQ'
 
 	try {
 		const response = await axios.post(
@@ -20,12 +21,8 @@ const yandexgpt_key = 'AQVN170ZNuJHpuN8ND1cVX5'
 				},
 				messages: [
 					{
-						role: 'system',
-						text: 'Найди ошибки в тексте и исправь их',
-					},
-					{
 						role: 'user',
-						text: `${text}`,
+						text: `${text.text}`,
 					},
 				],
 			},
