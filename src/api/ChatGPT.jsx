@@ -9,7 +9,7 @@ const ROLES = {
 }
 
 const openai = new OpenAI({
-	apiKey: import.meta.env.VITE_CHATGPT,
+	apiKey: process.env.VITE_CHATGPT,
 	dangerouslyAllowBrowser: true,
 })
 

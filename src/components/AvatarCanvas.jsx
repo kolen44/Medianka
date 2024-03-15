@@ -1,3 +1,4 @@
+'use client'
 import { Environment, useAnimations, useGLTF } from '@react-three/drei'
 import { Suspense, useEffect, useLayoutEffect, useState } from 'react'
 import { MyLoader } from './MyLoader'

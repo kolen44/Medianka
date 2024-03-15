@@ -1,15 +1,21 @@
+'use client'
 import { Environment, Gltf, OrbitControls } from '@react-three/drei'
 import { Canvas, useFrame } from '@react-three/fiber'
+import { useEffect, useState } from 'react'
 import AvatarCanvas from './AvatarCanvas'
 
 export default function Experience() {
+	const [width, setWidth] = useState(0)
+	useEffect(() => {
+		setWidth(window.innerWidth)
+	}, [])
 	return (
 		<>
 			<Canvas
 				gl={{ antialias: false, stencil: false }}
 				camera={{ position: [5, 0, 0], fov: 80 }}
 			>
-				{window.innerWidth > 768 && <OrbitControls />}
+				{width > 768 && <OrbitControls />}
 				<spotLight
 					angle={0.12}
 					penumbra={0.1}

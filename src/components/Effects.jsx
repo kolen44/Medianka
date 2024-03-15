@@ -1,3 +1,4 @@
+'use client'
 import { useLoader } from '@react-three/fiber'
 import { Bloom, EffectComposer, LUT, SSR } from '@react-three/postprocessing'
 import { useControls } from 'leva'

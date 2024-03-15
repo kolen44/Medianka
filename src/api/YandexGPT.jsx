@@ -1,43 +1,39 @@
-import axios from 'axios'
-
-const folder_id = 'b1got6mvjila3lv39i94'
-const yandexgpt_key = 'AQ-pAvliyQ1Y6lYSy3'
+import { YandexGPT } from '@langchain/yandex/llms'
+import cors from 'cors'
 
 export async function YaGPT(text) {
-	try {
-		const response = await axios.post(
-			`https://llm.api.cloud.yandex.net/foundationModels/v1/completion`,
-
-			{
-				crossdomain: true,
-				modelUri: `gpt://${folder_id}/yandexgpt/latest`,
-				completionOptions: {
-					stream: false,
-					temperature: 0.6,
-					maxTokens: '2000',
-				},
-				messages: [
-					{
-						role: 'system',
-						text: 'Найди ошибки в тексте и исправь их',
-					},
-					{
-						role: 'user',
-						text: `${text}`,
-					},
-				],
-			},
-			{
-				headers: {
-					Authorization: `Api-Key ${yandexgpt_key}`,
-					'x-folder-id': folder_id,
-				},
-			}
-		)
-		console.log(response.status)
-		console.log(JSON.stringify(response.data, null, 2))
-		return response.data
-	} catch (err) {
-		console.error('error:', err)
-	}
+	const model = new YandexGPT({
+		apiKey: 'AQVNyymvyRxLMc1pw_M6m9tXuQUvv1_JtN0Iv9aX',
+		folderID: 'b1got6mvjila3lv39i94',
+	})
+	const res = await model.invoke([`${text}`])
+	return { res }
 }
+
+const express = require('express')
+
+const app = express()
+
+app.use(cors())
+
+app.post(
+	'https://llm.api.cloud.yandex.net/foundationModels/v1/completion',
+	async (req, res) => {
+		const { text } = req.body
+		const model = new YandexGPT({
+			apiKey: 'your_token',
+			folderID: 'b1got6mvjila3lv39i94',
+		})
+
+		try {
+			const result = await model.invoke([text])
+			res.json({ result })
+		} catch (error) {
+			res.status(500).json({ error: error.message })
+		}
+	}
+)
+
+app.listen(3000, () => {
+	console.log('Server is running on port 3000')
+})

@@ -1,3 +1,4 @@
+'use client'
 import 'babel-polyfill'
 import SpeechRecognition, {
 	useSpeechRecognition,

@@ -1,3 +1,4 @@
+'use client'
 import { useState } from 'react'
 import { YaGPT } from '../api/YandexGPT'
 import { useStores } from '../data/store/useStore'
