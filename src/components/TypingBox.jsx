@@ -7,35 +7,43 @@ export const TypingBox = () => {
 	const [question, setQuestion] = useState('')
 	const askAI = useStores(state => state.chatGPTResponseBoolean)
 	const setPromptText = useStores(state => state.setPromptText)
-	const setBlockquotesFromYandexGPT = useStores(state => state.setBlockquotesFromYandexGPT)
+	const setTimeToSpeak = useStores(state => state.setTimeToSpeak)
+	const setBlockquotesFromYandexGPT = useStores(
+		state => state.setBlockquotesFromYandexGPT
+	)
 
-	const handleInputChange = (event) => {
-		setQuestion(event.target.value);
-	  };
+	const handleInputChange = event => {
+		setQuestion(event.target.value)
+	}
 
 	const ask = async () => {
 		const question = document.getElementById('textbox_id').value
-		if(question.length < 2){
+		if (question.length < 2) {
 			return console.log('no text(')
 		}
 		console.log(question)
 		const url = '/api/YandexGPT'
 		setQuestion('lll')
 		let postBody = {
-				"text": question
+			text: question,
 		}
 		const res = await fetch(url, {
 			method: 'POST',
 			headers: {
-				'Content-Type': 'application/json'
+				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(postBody),
 		})
 		console.log(res)
 		const final = await res.json()
-		if(final){setBlockquotesFromYandexGPT(final)
-			const utterance =  new SpeechSynthesisUtterance(final)
-			window.speechSynthesis.speak(utterance) 
+		if (final) {
+			setBlockquotesFromYandexGPT(final)
+			const utterance = new SpeechSynthesisUtterance(final)
+			window.speechSynthesis.speak(utterance)
+			setTimeToSpeak(true)
+			return setTimeout(() => {
+				setTimeToSpeak(false)
+			}, 10000)
 		}
 		console.log(final)
 		await setPromptText(final)
@@ -53,7 +61,7 @@ export const TypingBox = () => {
 				</p>
 			</div>
 
-			{askAI || loadingSpeak ? (
+			{loadingSpeak ? (
 				<div className='flex justify-center items-center'>
 					<span className='relative flex h-4 w-4'>
 						<span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75'></span>

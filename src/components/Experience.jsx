@@ -26,10 +26,10 @@ export default function Experience() {
 						self.target.updateMatrixWorld()
 					}}
 				/>
-				<Environment preset='sunset' />
 				<ambientLight intensity={0.5} color='white' />
 				<Gltf src='/hall-transformed.glb' position={[0, 0.98, 0]} />
-				<AvatarCanvas />
+				<Environment path='/hdri/' files={'venice_sunset_1k.hdr'} />
+				<AvatarCanvas position={[-1.5, -0.4, 0.7]} />
 				<Rig from={-Math.PI / 2} to={Math.PI / 2.66} />
 			</Canvas>
 		</>

@@ -3,9 +3,9 @@ import { NextResponse } from 'next/server'
 
 export const POST = async (req, res) => {
 	const text = await req.json()
-console.log(text)
-const folder_id = 'b1got6mvjila3lv39i94'
-const yandexgpt_key = 'AQVN0fDrPRcOI3DAGl5k'
+	console.log(text)
+	const folder_id = 'folder_id'
+	const yandexgpt_key = 'your token'
 
 	try {
 		const response = await axios.post(
@@ -34,10 +34,19 @@ const yandexgpt_key = 'AQVN0fDrPRcOI3DAGl5k'
 			}
 		)
 		console.log(response.status)
-		console.log(JSON.stringify(response.data.result.alternatives[0]["message"]["text"], null, 2))
-		return new NextResponse(JSON.stringify(response.data.result.alternatives[0]["message"]["text"]), {
-			status: 200
-		});
+		console.log(
+			JSON.stringify(
+				response.data.result.alternatives[0]['message']['text'],
+				null,
+				2
+			)
+		)
+		return new NextResponse(
+			JSON.stringify(response.data.result.alternatives[0]['message']['text']),
+			{
+				status: 200,
+			}
+		)
 	} catch (err) {
 		console.error('error:', err)
 	}
