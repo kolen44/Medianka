@@ -1,0 +1,48 @@
+.card {
+	position: relative;
+	bottom: 100px;
+	right: -920px;
+	display: flex;
+	padding: 20px;
+	border-radius: 55px 55px 55px 0px;
+	background-color: #ffffff;
+	width: 760px;
+	height: 360px;
+}
+
+.main {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.main h2 {
+	font-size: 40px;
+	color: #351654;
+}
+
+.main p {
+	color: #4f4f4f;
+	width: 400px;
+}
+
+.btn {
+	width: 280px;
+	height: 70px;
+	border-radius: 15px;
+	border: none;
+	background: linear-gradient(#db4ec8, #ca7bec);
+	font-size: 24px;
+	color: white;
+	font-weight: 600;
+}
+
+@media (max-width: 1500px) {
+	.card {
+		flex-direction: column;
+		width: 480px;
+		bottom: 500px;
+		left: 830px;
+		height: 400px;
+	}
+}

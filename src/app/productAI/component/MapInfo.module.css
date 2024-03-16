@@ -1,0 +1,52 @@
+.mapDiv {
+	display: flex;
+	justify-content: space-between;
+	margin: 600px 150px;
+}
+
+.h3 {
+	color: #351654;
+	font-size: 60px;
+}
+
+.main {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	height: 550px;
+}
+
+.menu p {
+	color: #828183;
+	font-size: 20px;
+}
+
+.text {
+	font-size: 20px;
+	width: 500px;
+	margin-bottom: 30px;
+}
+
+.menu {
+	display: flex;
+	padding: 5px 0;
+	justify-content: space-between;
+}
+
+.main button {
+	margin-top: 20px;
+	width: 300px;
+	height: 70px;
+	border-radius: 15px;
+	border: none;
+	background: linear-gradient(#db4ec8, #ca7bec);
+	font-size: 24px;
+	color: white;
+	font-weight: 600;
+}
+
+@media (max-width: 1500px) {
+	.main {
+		height: 700px;
+	}
+}

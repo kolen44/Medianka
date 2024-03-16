@@ -61,9 +61,11 @@ p,
 	word-spacing: 2px;
 	width: fit-content;
 	max-width: 620px;
+	max-height: 100vh;
 	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 8;
 	line-height: 1.6;
-
 }
 
 .btn-style {
@@ -77,9 +79,9 @@ p,
 	background: rgb(17 166 131);
 	color: rgb(255 255 255);
 	border-radius: 6px;
-	padding: 16px 32px;
+	padding: 8px 16px;
 	border: none;
-	font-size: 18px;
+	font-size: 16px;
 	letter-spacing: 1px;
 	margin: auto;
 	display: flex;
@@ -119,7 +121,6 @@ button:hover {
 		position: relative;
 		background-color: aliceblue;
 		width: 100vw;
-		font-size: 16px;
 		word-spacing: normal;
 		justify-content: space-around;
 	}

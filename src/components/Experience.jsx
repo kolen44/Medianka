@@ -1,21 +1,22 @@
 'use client'
 import { Environment, Gltf, OrbitControls } from '@react-three/drei'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { useEffect, useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
 import AvatarCanvas from './AvatarCanvas'
-
+let widthZ
 export default function Experience() {
-	const [width, setWidth] = useState(0)
-	useEffect(() => {
-		setWidth(window.innerWidth)
-	}, [])
+	const [widthBoolean, setWidthBoolean] = useState(0)
+	useLayoutEffect(() => {
+		setWidthBoolean(window.innerWidthBoolean)
+	})
 	return (
 		<>
 			<Canvas
 				gl={{ antialias: false, stencil: false }}
 				camera={{ position: [5, 0, 0], fov: 80 }}
 			>
-				{width > 768 && <OrbitControls />}
+				{/* <Effects /> */}
+				{widthBoolean > 768 && <OrbitControls />}
 				<spotLight
 					angle={0.12}
 					penumbra={0.1}
@@ -27,9 +28,10 @@ export default function Experience() {
 					}}
 				/>
 				<ambientLight intensity={0.5} color='white' />
+				<AvatarCanvas position={[-1.5, -0.4, 0.6]} />
 				<Gltf src='/hall-transformed.glb' position={[0, 0.98, 0]} />
 				<Environment path='/hdri/' files={'venice_sunset_1k.hdr'} />
-				<AvatarCanvas position={[-1.5, -0.4, 0.7]} />
+
 				<Rig from={-Math.PI / 2} to={Math.PI / 2.66} />
 			</Canvas>
 		</>

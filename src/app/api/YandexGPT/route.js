@@ -4,8 +4,8 @@ import { NextResponse } from 'next/server'
 export const POST = async (req, res) => {
 	const text = await req.json()
 	console.log(text)
-	const folder_id = 'folder_id'
-	const yandexgpt_key = 'your token'
+	const folder_id = 'b1got6mvjila3lv39i94'
+	const yandexgpt_key = 'AQVNwO1gh4-VZdHrNBDVz2McFKyKm4pZTdXLKhTf'
 
 	try {
 		const response = await axios.post(

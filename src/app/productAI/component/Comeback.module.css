@@ -1,0 +1,47 @@
+.card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-top: 800px;
+}
+.input {
+	font-size: 20px;
+	padding: 10px;
+	width: 673px;
+	margin: 20px;
+	height: 50px;
+	border-radius: 15px;
+	border: none;
+}
+.card h1 {
+	font-size: 60px;
+	font-weight: 700;
+	color: #faf4fc;
+	text-align: center;
+	line-height: 60px;
+}
+
+.card button {
+	width: 230px;
+	height: 70px;
+	font-size: 20px;
+	border-radius: 10px;
+	background-color: white;
+	border: none;
+	font-weight: 700;
+	color: #9f5edc;
+}
+
+@media (max-width: 1500px) {
+	.card {
+		margin-left: 450px;
+		margin-top: 650px;
+	}
+	.input {
+		margin: 0 10px;
+	}
+	.card h1 {
+		margin-bottom: 10px;
+	}
+}

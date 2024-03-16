@@ -69,7 +69,7 @@ export const TypingBox = () => {
 					</span>
 				</div>
 			) : (
-				<div className='gap-3 flex'>
+				<div className='gap-3 flex flex-col'>
 					<input
 						className='focus:outline focus:outline-white/80 flex-grow bg-slate-800/60 p-2 px-4 rounded-full text-white placeholder:text-white/50 shadow-inner shadow-slate-900/60'
 						placeholder='Когда был основан Кремль?'
@@ -82,7 +82,8 @@ export const TypingBox = () => {
 						}}
 					/>
 					<button
-						className='bg-slate-100/20 p-2 px-6 rounded-full text-white'
+						name='section1'
+						className='bg-slate-100/20 p-2 px-4 rounded-full text-white'
 						onClick={ask}
 					>
 						Спросить

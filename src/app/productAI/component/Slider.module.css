@@ -1,0 +1,46 @@
+.main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 100px;
+}
+
+.text {
+	font-weight: 700;
+	font-size: 60px;
+	margin: 120px 0;
+	color: white;
+}
+
+.slaider {
+	display: flex;
+	overflow: hidden;
+	overflow-x: scroll;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	width: 88%;
+	overscroll-behavior: contain;
+}
+
+.card img {
+	width: 350px;
+	border-radius: 20px;
+}
+
+.card p {
+	width: 350px;
+}
+
+.card {
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	border-radius: 20px;
+	padding: 30px;
+	height: 360px;
+	color: #6f6e70;
+	scroll-snap-align: center;
+	margin: 30px;
+}
