@@ -46,7 +46,7 @@ p {
 	right: 0;
 	border-radius: 20px;
 	width: fit-content;
-	background-color: aliceblue;
+	background-color: rgb(48, 64, 167);
 }
 
 .main-content:focus {
@@ -59,13 +59,16 @@ p,
 	font-size: 18px;
 	letter-spacing: 1px;
 	word-spacing: 2px;
-	max-width: fit-content;
+	width: fit-content;
+	max-width: 620px;
 	overflow: hidden;
 	line-height: 1.6;
+
 }
 
 .btn-style {
-	margin: 5vh 0;
+	width: 100%;
+	justify-content: space-between;
 	display: flex;
 }
 
@@ -136,6 +139,7 @@ button:hover {
 		margin: 5px;
 		margin-bottom: 0;
 	}
+
 	.canvas3d {
 		height: 100vh;
 		width: 100vw;
