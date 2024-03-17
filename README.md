@@ -45,7 +45,7 @@
 
 ## About The Project
 <div align="center">
-<img src="https://github.com/kolen44/AI-Face-tracking/assets/126617855/0b6fabe0-d1bb-47f8-857d-447fb0e310fb" alt="Logo" width="400" height="330">
+<img src="https://github.com/kolen44/AI-Face-tracking/assets/126617855/3a9932c5-09c9-4543-8dae-e330dd1d7721" alt="Logo" width="800" height="450">
 </div>
 
 <p align='center'>Using a metapipe and a neural network that relies on imitation of human movements, this bot was created.</p>
@@ -58,13 +58,19 @@ The project was made using:
 - <img src="https://github.com/kolen44/AI-Face-tracking/assets/126617855/5d7adf8a-8fca-4919-85f9-d7a7c4fe4e0a" alt="Ready player" width="200" height="100">
 - <img src="https://i.pinimg.com/originals/9b/4e/e0/9b4ee057076232fb57c48cf80947f8a7.png" alt="React" width="200" height="100">
 - <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--iIQWLTZE--/c_imagga_scale,f_auto,fl_progressive,h_500,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/unl5rmyd4ujiz3sv3jhf.png" alt="Fiber" width="200" height="100">
-- <img src="https://yt3.googleusercontent.com/ytc/APkrFKZmxf2jVlfD3AWv3rfcR0CJM4Se0FnZJaMm8Usm=s900-c-k-c0x00ffffff-no-rj" alt="MediaPipe" width="200" height="100">
+- <img src="https://github.com/kolen44/AI-Face-tracking/assets/126617855/52692552-3051-4942-b380-b7cc428fe257" alt="YaGPT" width="200" height="100">
+- <img src="https://github.com/kolen44/AI-Face-tracking/assets/126617855/dd186c30-b67d-478e-bf4a-350b77ef093b" alt="Nextjs" width="200" height="100">
+- <img src="https://github.com/kolen44/AI-Face-tracking/assets/126617855/c0519be8-2972-49c3-8b6d-44658db5a2e5" alt="Nextjs" width="200" height="100">
+- <img src="https://github.com/kolen44/AI-Face-tracking/assets/126617855/87483964-bf7a-4040-a7e5-272086d94033" alt="Nextjs" width="200" height="100">
+
 
 
 <!-- GETTING STARTED -->
 
-## Getting Started
-
+## Main features
+<div align="center">
+<img src="https://github.com/kolen44/AI-Face-tracking/assets/126617855/d2ca61a0-db7d-4b2d-8a32-ab990ce89413" alt="Logo" width="800" height="450">
+</div>
 
 ### Prerequisites
 
@@ -76,8 +82,9 @@ This is an example of how to list things you need to use the software and how to
   ```
 
 ### Installation
+Before you start, make sure that you have added your API keys to the .env file <img src="https://github.com/kolen44/AI-Face-tracking/assets/126617855/61007e15-9afa-4083-b7cc-3a442fa11530" alt="Nextjs" width="200" height="100">
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. Get a free API Key at [YandexGPT](https://cloud.yandex.ru/ru/docs/yandexgpt/quickstart)
 2. Clone the repo
    ```sh
    git clone https://github.com/kolen44/AI-Face-tracking.git
@@ -86,6 +93,11 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    npm install
    ```
+4. And start development!
+   ```sh
+   npm run dev
+   ```
+
 
 
 ## Contributing
@@ -106,7 +118,7 @@ Don't forget to give the project a star! Thanks again!
 
 ## Contact
 
-Ilya - <a href='https://t.me/IlyaWini'>Telegram</a> - vlodimirz981@gmail.com
+Ilya - <a href='https://t.me/onlygreatmindset'>Telegram</a> - vlodimirz981@gmail.com
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
