@@ -82,6 +82,7 @@ This is an example of how to list things you need to use the software and how to
   ```
 
 ### Installation
+Before you start, make sure that you have added your API keys to the .env file <img src="https://github.com/kolen44/AI-Face-tracking/assets/126617855/61007e15-9afa-4083-b7cc-3a442fa11530" alt="Nextjs" width="200" height="100">
 
 1. Get a free API Key at [YandexGPT](https://cloud.yandex.ru/ru/docs/yandexgpt/quickstart)
 2. Clone the repo
