@@ -8,7 +8,7 @@ const SectionInput = () => {
 				<input
 					type='text'
 					className={style.input}
-					placeholder='Придумай игру для 2 человек'
+					placeholder='Придумай игру для двоих'
 				/>
 				<button>Поиск</button>
 			</form>

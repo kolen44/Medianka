@@ -22,6 +22,7 @@
 }
 
 .text {
+	color: #828183;
 	font-size: 20px;
 	width: 500px;
 	margin-bottom: 30px;
@@ -48,5 +49,12 @@
 @media (max-width: 1500px) {
 	.main {
 		height: 700px;
+	}
+}
+
+
+@media (max-width: 1025px) {
+	.mapDiv {
+		margin-top: 350px;
 	}
 }

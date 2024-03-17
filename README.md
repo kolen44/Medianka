@@ -32,7 +32,7 @@
   <p align="center">
     3D model that fully tracks your actions
     <br />
-    <a href="https://ai-face-tracking-codd.vercel.app/"><strong>Explore the app »</strong></a>
+    <a href="https://ai-face-tracking-2llt.vercel.app/productAI"><strong>Explore the app »</strong></a>
     <br />
     <br />
     ·

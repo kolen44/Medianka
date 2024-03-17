@@ -32,3 +32,10 @@
 .main {
 	flex-direction: row !important;
 }
+
+
+@media (max-width: 1025px) {
+	.container p {
+		width: 200px;
+	}
+}

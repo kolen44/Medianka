@@ -10,6 +10,7 @@
 .text {
 	font-weight: 700;
 	font-size: 60px;
+	color: #351654;
 }
 
 .form {
@@ -33,7 +34,7 @@
 	padding: 10px;
 	width: 673px;
 	margin: 20px;
-	height: 50px;
+	height: 70px;
 	border-radius: 15px;
 	border: none;
 }
@@ -57,5 +58,12 @@
 
 	.input {
 		margin: 0 10px;
+	}
+}
+
+
+@media (max-width: 1025px) {
+	.main {
+		margin-top: 120px;
 	}
 }

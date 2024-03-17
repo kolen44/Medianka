@@ -26,6 +26,12 @@
 	width: 400px;
 }
 
+.card img {
+	width: 200px;
+	height: 200px;
+	margin: auto 15px;
+}
+
 .btn {
 	width: 280px;
 	height: 70px;
@@ -40,9 +46,28 @@
 @media (max-width: 1500px) {
 	.card {
 		flex-direction: column;
-		width: 480px;
+		width: 415px;
 		bottom: 500px;
 		left: 830px;
 		height: 400px;
+	}
+
+	.btn {
+		margin: 10px auto;
+		height: 50px;
+	}
+
+	.card img {
+		margin: 5px;
+		width: 100px;
+		margin: 5px auto;
+	}
+
+}
+
+@media (max-width: 1025px) {
+	.card {
+		bottom: 530px;
+		left: 550px;
 	}
 }

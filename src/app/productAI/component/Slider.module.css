@@ -39,8 +39,13 @@
 	justify-content: space-between;
 	border-radius: 20px;
 	padding: 30px;
-	height: 360px;
+	min-height: 400px;
+	height: fit-content;
 	color: #6f6e70;
 	scroll-snap-align: center;
 	margin: 30px;
+}
+
+.card h4 {
+	font-size: 24px;
 }

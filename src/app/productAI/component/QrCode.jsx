@@ -11,9 +11,7 @@ const QrCode = () => {
 				</p>
 				<button className={style.btn}>Скачать</button>
 			</div>
-			<div>
-				<p>Тут будет qr</p>
-			</div>
+			<img src="/productAI/qr-code.png" alt="" />
 		</div>
 	)
 }

@@ -1,11 +1,12 @@
 import style from './MapInfo.module.css'
+// import { YMaps, Map, Placemark, SearchControl } from 'react-yandex-maps';
 
 const MapInfo = () => {
 	return (
 		<div className={style.mapDiv}>
 			<div className={style.main}>
 				<div>
-					<h3>Интерактивная карта</h3>
+					<h3 className={style.h3}>Интерактивная карта</h3>
 					<p className={style.text}>
 						Эта карта будет полезна для туристов, жителей города или просто для
 						людей, которые хотят получить информацию о конкретном районе или
@@ -32,7 +33,18 @@ const MapInfo = () => {
 				<button>Поиск</button>
 			</div>
 			<div>
-				<p>тут будет карта</p>
+				<p>Тут будет карта</p>
+				{/* <YMaps>
+					<div style={{ width: '300px', height: '300px' }}>
+						<Map
+							defaultState={{ center: [56.85, 60.61], zoom: 10 }}
+							options={{ maxZoom: 19 }}
+						>
+							<Placemark geometry={[56.85, 60.61]} />
+							<SearchControl options={{ float: 'right' }} />
+						</Map>
+					</div>
+				</YMaps> */}
 			</div>
 		</div>
 	)
