@@ -24,10 +24,10 @@
 <br />
 <div align="center">
   <a href="https://github.com/kolen44/AI-Face-tracking">
-    <img src="https://medialeaks.ru/wp-content/uploads/2019/10/34.jpg" alt="Logo" width="280" height="200">
+    <img src="https://github.com/kolen44/MediankaAI/assets/126617855/9ce117c3-a77a-4fe6-91a0-afae108e57dd" alt="Logo" width="400" height="225">
   </a>
 
-  <h3 align="center">AI Face Tracking</h3>
+  <h3 align="center">Медянка</h3>
 
   <p align="center">
     3D model that fully tracks your actions
@@ -45,10 +45,10 @@
 
 ## About The Project
 <div align="center">
-<img src="https://github.com/kolen44/AI-Face-tracking/assets/126617855/3a9932c5-09c9-4543-8dae-e330dd1d7721" alt="Logo" width="800" height="450">
+<img src="https://github.com/kolen44/MediankaAI/assets/126617855/fd869564-1a44-421d-9f6e-f15da3f22bbc" alt="Logo" width="800" height="550">
 </div>
 
-<p align='center'>Using a metapipe and a neural network that relies on imitation of human movements, this bot was created.</p>
+<p align='center'>A web interface based on modern technologies that has the potential to change the life of each of us!</p>
 
 
 ### Built With
