@@ -1,17 +1,13 @@
-.mapDiv {
-	display: flex;
-	justify-content: space-between;
-	margin: 600px 150px;
-	height: 70vh;
-}
-
 .h3 {
-	color: #351654;
+	background-image: linear-gradient(to right, #9f4cde, #c248b4, #e539ba);
+	color: transparent;
+	-webkit-background-clip: text;
+	background-clip: text;
 	font-size: 60px;
 }
 
 .castle {
-	height: 70vh;
+	height: 300px;
 	width: 50vw;
 }
 
@@ -19,19 +15,17 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
-	height: 550px;
+	height: 700px;
+	border-radius: 20px;
 }
 
 .menu p {
-	color: #828183;
-	font-size: 20px;
+	color: #fbfbfb;
 }
 
 .text {
 	color: #828183;
-	font-size: 20px;
-	width: 500px;
-	margin-bottom: 30px;
+	margin-bottom: 0px;
 }
 
 .menu {
@@ -40,9 +34,12 @@
 	justify-content: space-between;
 }
 
-.main button {
+.main .button {
 	margin-top: 20px;
 	width: 300px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	height: 70px;
 	border-radius: 15px;
 	border: none;
