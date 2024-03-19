@@ -28,8 +28,8 @@ const MainPage = () => {
 			<SectionInput />
 			<Slider />
 			<MapInfo />
-			<QrCode />
 			<Comeback />
+			<QrCode />
 			<Footer />
 		</div>
 	)

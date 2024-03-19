@@ -1,8 +1,12 @@
 .container {
+	height: 100vh;
+	width: 80vw;
+	margin: 0 auto;
+	gap: 15vw;
 	display: flex;
-	align-items: center;
+	align-items: flex-end;
 	justify-content: space-around;
-	margin-bottom: 0;
+	margin-bottom: 10vh;
 }
 
 .container div {
@@ -10,6 +14,7 @@
 	flex-direction: column;
 	justify-content: space-around;
 	height: 100px;
+	width: 20vw;
 	color: #faf4fc;
 }
 
@@ -26,8 +31,21 @@
 }
 
 .main {
+	display: flex;
+	width: 50vw !important;
 	flex-direction: row !important;
+	gap: 5vw;
 }
 
 @media (max-width: 1025px) {
+	.container {
+		gap: 5vw;
+		height: fit-content;
+	}
+}
+
+@media (min-width: 1920px) {
+	.container {
+		height: 40vh;
+	}
 }

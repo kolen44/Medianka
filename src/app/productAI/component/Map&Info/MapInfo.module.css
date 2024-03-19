@@ -28,7 +28,7 @@
 }
 
 .text {
-	background-image: linear-gradient(to right, #cbde4c, #d6e647, #f7ef22);
+	background-image: linear-gradient(to right, #524f4f, #534153, #86856d);
 	color: transparent;
 	-webkit-background-clip: text;
 	background-clip: text;
@@ -37,6 +37,7 @@
 	max-width: 700px;
 	margin: 0 auto 0 auto;
 	margin-bottom: 30px;
+	padding: 0 5vw 0 5vw;
 }
 
 .text h1 {
@@ -77,7 +78,7 @@
 
 @media (max-width: 1025px) {
 	.mapDiv {
-		margin-top: 350px;
+		margin-top: 0;
 	}
 	.castle {
 		margin: 0;

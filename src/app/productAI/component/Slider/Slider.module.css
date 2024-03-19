@@ -19,20 +19,16 @@
 
 .slider {
 	display: flex;
-	overflow: hidden;
 	scroll-snap-type: x mandatory;
 	scroll-behavior: smooth;
-	width: 88%;
+	height: fit-content;
+	width: 88vw;
 	overscroll-behavior: contain;
 }
 
 .card img {
 	width: 350px;
 	border-radius: 20px;
-}
-
-.card p {
-	width: 350px;
 }
 
 .card {
@@ -42,10 +38,8 @@
 	justify-content: space-between;
 	border-radius: 20px;
 	padding: 30px;
-	min-height: 400px;
 	height: fit-content;
 	color: #6f6e70;
-	scroll-snap-align: center;
 	margin: 30px;
 }
 
@@ -62,5 +56,11 @@
 	.card h4 {
 		font-size: 18px;
 		font-weight: 700;
+	}
+}
+
+@media (max-width: 1025px) {
+	.main {
+		height: 0;
 	}
 }
