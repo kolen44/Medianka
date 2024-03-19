@@ -1,8 +1,8 @@
 .mapDiv {
 	display: flex;
-	justify-content: space-between;
-	margin: 600px 150px;
-	height: 70vh;
+	height: 100vh;
+	margin: 20vh 0 20vh 0;
+	align-items: center;
 }
 
 .h3 {
@@ -28,10 +28,20 @@
 }
 
 .text {
-	color: #828183;
-	font-size: 20px;
-	width: 500px;
+	background-image: linear-gradient(to right, #cbde4c, #d6e647, #f7ef22);
+	color: transparent;
+	-webkit-background-clip: text;
+	background-clip: text;
+	font-size: 22px;
+	font-weight: 700;
+	max-width: 700px;
+	margin: 0 auto 0 auto;
 	margin-bottom: 30px;
+}
+
+.text h1 {
+	font-size: 40px;
+	font-weight: 800;
 }
 
 .menu {
@@ -56,10 +66,22 @@
 	.main {
 		height: 700px;
 	}
+	.mapDiv {
+		flex-direction: column;
+	}
+	.castle {
+		margin: 0 auto 0 auto;
+		margin-bottom: 5vh;
+	}
 }
 
 @media (max-width: 1025px) {
 	.mapDiv {
 		margin-top: 350px;
+	}
+	.castle {
+		margin: 0;
+		width: 0;
+		height: 0;
 	}
 }

@@ -2,7 +2,7 @@ import style from './SectionInput.module.css'
 
 const SectionInput = () => {
 	return (
-		<div className={style.main}>
+		<div className={style.main} id='sectioninput'>
 			<p className={style.text}>Что я умею?</p>
 			<form className={style.form}>
 				<input

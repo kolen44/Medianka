@@ -15,7 +15,7 @@ import style from './Castle.module.css'
 export default function Castle() {
 	return (
 		<Canvas
-			style={{ borderRadius: '60px' }}
+			style={{ borderRadius: '60px', marginLeft: '20px' }}
 			shadows
 			camera={{ position: [1, 0, 0], fov: 45 }}
 		>

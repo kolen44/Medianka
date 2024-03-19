@@ -3,7 +3,7 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	margin-top: 900px;
+	width: 100vw;
 }
 
 .input {
@@ -19,7 +19,10 @@
 .card h1 {
 	font-size: 60px;
 	font-weight: 700;
-	color: #faf4fc;
+	background-image: linear-gradient(to right, #f7fb06, #e9e632, #dadc3d);
+	color: transparent;
+	-webkit-background-clip: text;
+	background-clip: text;
 	text-align: center;
 	line-height: 60px;
 }
@@ -37,8 +40,7 @@
 
 @media (max-width: 1500px) {
 	.card {
-		margin-left: 500px;
-		margin-top: 660px;
+		margin: auto;
 	}
 
 	.input {
@@ -51,7 +53,6 @@
 	}
 }
 
-
 @media (max-width: 1025px) {
 	.card {
 		margin-top: 860px;
@@ -63,5 +64,16 @@
 
 	.card h1 {
 		font-size: 40px;
+	}
+
+	.card button {
+		width: 200px;
+		height: 70px;
+		font-size: 20px;
+		border-radius: 10px;
+		background-color: white;
+		border: none;
+		font-weight: 700;
+		color: #9f5edc;
 	}
 }

@@ -25,9 +25,8 @@
 }
 
 .nav {
-	width: 400px;
 	display: flex;
-	justify-content: space-between;
+	gap: 5vw;
 }
 
 .nav p {
@@ -55,7 +54,7 @@
 	font-size: 80px;
 	font-weight: 700;
 	width: 650px;
-	margin: 0 120px;
+	margin: 10vh 120px 0 120px;
 	color: #351654;
 }
 
@@ -133,6 +132,14 @@
 		font-size: 30px;
 	}
 
+	.nav {
+		width: 0;
+		height: 0;
+		z-index: -10;
+		margin: 0;
+		padding: 0;
+	}
+
 	.btn {
 		border: 3px solid black;
 		font-weight: 700;
@@ -146,6 +153,11 @@
 
 	.medText {
 		display: none;
+	}
+
+	.header {
+		padding: 0 120px 0 120px;
+		margin: 60px 0 0 0;
 	}
 }
 

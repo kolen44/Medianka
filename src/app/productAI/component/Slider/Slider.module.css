@@ -4,19 +4,22 @@
 	justify-content: center;
 	align-items: center;
 	margin-top: 100px;
+	height: 100vh;
 }
 
 .text {
 	font-weight: 700;
 	font-size: 60px;
 	margin: 120px 0;
-	color: white;
+	background-image: linear-gradient(to right, #9f4cde, #c248b4, #e539ba);
+	color: transparent;
+	-webkit-background-clip: text;
+	background-clip: text;
 }
 
-.slaider {
+.slider {
 	display: flex;
 	overflow: hidden;
-	overflow-x: scroll;
 	scroll-snap-type: x mandatory;
 	scroll-behavior: smooth;
 	width: 88%;
@@ -48,4 +51,16 @@
 
 .card h4 {
 	font-size: 24px;
+}
+
+@media (max-width: 1500px) {
+	.card p {
+		width: 0;
+		font-size: 0;
+	}
+
+	.card h4 {
+		font-size: 18px;
+		font-weight: 700;
+	}
 }

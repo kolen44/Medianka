@@ -1,7 +1,6 @@
 .card {
 	position: relative;
-	bottom: 100px;
-	right: -920px;
+	margin-right: 0;
 	display: flex;
 	padding: 20px;
 	border-radius: 55px 55px 55px 0px;
@@ -47,8 +46,6 @@
 	.card {
 		flex-direction: column;
 		width: 415px;
-		bottom: 500px;
-		left: 830px;
 		height: 400px;
 	}
 
@@ -62,12 +59,16 @@
 		width: 100px;
 		margin: 5px auto;
 	}
-
 }
 
 @media (max-width: 1025px) {
 	.card {
-		bottom: 530px;
-		left: 550px;
+		margin-right: 0;
+	}
+}
+@media (max-width: 375px) {
+	.card img {
+		width: 0;
+		height: 0;
 	}
 }
