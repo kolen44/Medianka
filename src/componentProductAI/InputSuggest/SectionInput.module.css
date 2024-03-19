@@ -7,6 +7,18 @@
 	margin-top: 150px;
 }
 
+.responsetext {
+	font-size: 20px;
+	font-weight: 500;
+	background-image: linear-gradient(to right, #9f4cde, #c248b4, #e539ba);
+	color: transparent;
+	-webkit-background-clip: text;
+	background-clip: text;
+	padding: 20px;
+	max-width: 50%;
+	height: fit-content;
+}
+
 .text {
 	font-weight: 700;
 	font-size: 60px;

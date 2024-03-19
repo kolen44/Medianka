@@ -21,6 +21,12 @@ export const POST = async (req, res) => {
 				},
 				messages: [
 					{
+						role: 'system',
+						text: text.system
+							? text.system
+							: 'Ты нейросеть которая максимально точно и без воды дает ответ на вопрос пользователя',
+					},
+					{
 						role: 'user',
 						text: `${text.text}`,
 					},
@@ -33,7 +39,7 @@ export const POST = async (req, res) => {
 				},
 			}
 		)
-		console.log(response.status)
+		console.log(response.data.result.alternatives[0]['message']['text'])
 		console.log(
 			JSON.stringify(
 				response.data.result.alternatives[0]['message']['text'],

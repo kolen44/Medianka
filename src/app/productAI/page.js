@@ -1,4 +1,5 @@
-import MainPage from './component/MainPage'
+'use client'
+import MainPage from '../../componentProductAI/MainPage'
 import './index.css'
 
 function Page() {
