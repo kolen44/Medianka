@@ -1,6 +1,4 @@
 'use client'
-import Comeback from './Comeback/Comeback'
-import Footer from './Footer/Footer'
 import Header from './Header/Header'
 import SectionInput from './InputSuggest/SectionInput'
 import style from './MainPage.module.css'
@@ -28,9 +26,7 @@ const MainPage = () => {
 			<SectionInput />
 			<Slider />
 			<MapInfo />
-			<Comeback />
 			<QrCode />
-			<Footer />
 		</div>
 	)
 }

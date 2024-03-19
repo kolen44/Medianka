@@ -52,6 +52,7 @@
 
 @media (max-width: 1500px) {
 	.card {
+		margin: 0 auto;
 		flex-direction: column;
 		width: 415px;
 		height: 400px;

@@ -60,6 +60,9 @@
 }
 
 @media (max-width: 1025px) {
+	.text {
+		margin-top: 30vh;
+	}
 	.main {
 		height: 0;
 	}

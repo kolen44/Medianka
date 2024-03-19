@@ -52,10 +52,6 @@
 }
 
 @media (max-width: 1500px) {
-	.main {
-		margin-top: 500px;
-	}
-
 	.input {
 		margin: 0 10px;
 	}
@@ -64,5 +60,9 @@
 @media (max-width: 1025px) {
 	.main {
 		margin-top: 120px;
+	}
+
+	.form {
+		width: 100vw;
 	}
 }

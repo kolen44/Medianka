@@ -77,12 +77,19 @@
 }
 
 @media (max-width: 1025px) {
-	.mapDiv {
-		margin-top: 0;
+	.text {
+		margin-top: 50vh;
+		height: fit-content;
 	}
+}
+
+@media (max-width: 1500px) {
 	.castle {
 		margin: 0;
 		width: 0;
 		height: 0;
+	}
+	.mapDiv {
+		margin-bottom: 250px;
 	}
 }
