@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import style from './Header.module.css'
+import style from '../../../styles/productAI/Header.module.css'
 
 const Header = () => {
 	return (

@@ -10,7 +10,7 @@ import {
 import { Canvas, useFrame } from '@react-three/fiber'
 import Link from 'next/link'
 import * as THREE from 'three'
-import style from './Castle.module.css'
+import style from '../../../../styles/productAI/Castle.module.css'
 
 export default function Castle() {
 	return (

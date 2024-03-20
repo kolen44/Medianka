@@ -1,4 +1,4 @@
-import style from './Footer.module.css'
+import style from '../../../styles/productAI/Footer.module.css'
 
 const Footer = () => {
 	return (

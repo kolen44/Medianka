@@ -6,7 +6,7 @@ Command: npx gltfjsx@6.2.3 public/models/646d9dcdc8a5f5bddbfac913.glb -o src/com
 import { useAnimations, useFBX, useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { useEffect, useRef, useState } from 'react'
-import { useStores } from '../data/store/useStore'
+import { useStores } from '../../data/main/store/useStore'
 
 export default function AvatarCanvas(props) {
 	const timeToSpeak = useStores(state => state.timeToSpeak)

@@ -1,4 +1,4 @@
-import style from './QrCode.module.css'
+import style from '../../../styles/productAI/QrCode.module.css'
 
 const QrCode = () => {
 	return (

@@ -1,6 +1,6 @@
 'use client'
+import style from '../../../styles/productAI/MapInfo.module.css'
 import Castle from './Castle3d/Castle'
-import style from './MapInfo.module.css'
 
 const MapInfo = () => {
 	return (

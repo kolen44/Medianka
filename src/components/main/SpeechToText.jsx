@@ -1,18 +1,16 @@
 'use client'
+import { YaGPTSend } from '@/feautures/main/SpeechSendYaGPT'
 import 'idempotent-babel-polyfill'
 import SpeechRecognition, {
 	useSpeechRecognition,
 } from 'react-speech-recognition'
-import { useStores } from '../data/store/useStore'
+import { ToastContainer } from 'react-toastify'
+import { useStores } from '../../data/main/store/useStore'
 import ResponseBlockquote from './ResponseBlockquote'
 import { TypingBox } from './TypingBox'
 
 export default function SpeechToText() {
 	const setLoadingSpeak = useStores(state => state.setLoadingSpeak)
-	let chatGPTResponseBoolean = useStores(state => state.chatGPTResponseBoolean)
-	const responseText = useStores(state => state.responseText)
-	const setTrueResponse = useStores(set => set.setTrueResponse)
-	const setPromptText = useStores(state => state.setPromptText)
 	const setBlockquotesFromYandexGPT = useStores(
 		state => state.setBlockquotesFromYandexGPT
 	)
@@ -30,36 +28,19 @@ export default function SpeechToText() {
 		console.log("Your browser does'nt support speech recognition")
 	}
 
-	async function YaGPTSend() {
-		const url = '/api/YandexGPT'
-		if (transcript) {
-			const res = await fetch(url, {
-				method: 'POST',
-				headers: {
-					'content-type': 'application/json',
-				},
-				body: JSON.stringify({ text: transcript }),
-			})
-			const final = await res.json()
-			if (final.length) {
-				setBlockquotesFromYandexGPT(final)
-				const voices = window.speechSynthesis.getVoices()
-				const lastVoice = voices[voices.length - 1]
-				const utterance = new SpeechSynthesisUtterance(final)
-				utterance.voice = lastVoice
-				window.speechSynthesis.speak(utterance)
-				console.log(final.replace(' ', ''))
-				setTimeToSpeak(true)
-				return setTimeout(() => {
-					setTimeToSpeak(false)
-				}, 10000)
-			} else {
-				return new Error('На внутреннем сервере ошибка')
-			}
-
-			console.log(final)
-			resetTranscript()
-		}
+	async function ask() {
+		const requestText = transcript
+		const final = await YaGPTSend(requestText)
+		const voices = window.speechSynthesis.getVoices()
+		const lastVoice = voices[voices.length - 1]
+		const utterance = new SpeechSynthesisUtterance(final)
+		utterance.voice = lastVoice
+		window.speechSynthesis.speak(utterance)
+		setBlockquotesFromYandexGPT(final)
+		setTimeToSpeak(true)
+		setTimeout(() => {
+			setTimeToSpeak(false)
+		}, 10000)
 	}
 
 	return (
@@ -86,13 +67,14 @@ export default function SpeechToText() {
 					</button>
 					<button
 						onClick={() => {
-							YaGPTSend(), setLoadingSpeak(false)
+							ask(), setLoadingSpeak(false)
 						}}
 					>
 						Отправить
 					</button>
 				</div>
 				<ResponseBlockquote />
+				<ToastContainer />
 			</div>
 		</>
 	)

@@ -1,7 +1,7 @@
 'use client'
+import style from '../../styles/productAI/MainPage.module.css'
 import Header from './Header/Header'
 import SectionInput from './InputSuggest/SectionInput'
-import style from './MainPage.module.css'
 import MapInfo from './Map&Info/MapInfo'
 import QrCode from './QrCode/QrCode'
 import Slider from './Slider/Slider'

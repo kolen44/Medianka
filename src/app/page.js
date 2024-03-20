@@ -1,17 +1,9 @@
 import 'regenerator-runtime/runtime'
-import Experience from '../components/Experience'
-import SpeechToText from '../components/SpeechToText'
-import '../styles/App.css'
+import MainPage from '../components/main/MainPage'
+import '../styles/main/App.css'
 
 function App() {
-	return (
-		<>
-			<div className='canvas3d'>
-				<Experience />
-				<SpeechToText />
-			</div>
-		</>
-	)
+	return <MainPage />
 }
 
 export default App

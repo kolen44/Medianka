@@ -1,6 +1,7 @@
 'use client'
+import { YaGPTSend } from '@/feautures/main/SpeechSendYaGPT'
 import { useState } from 'react'
-import { useStores } from '../data/store/useStore'
+import { useStores } from '../../data/main/store/useStore'
 
 export const TypingBox = () => {
 	let loadingSpeak = useStores(state => state.loadingSpeak)
@@ -18,34 +19,16 @@ export const TypingBox = () => {
 
 	const ask = async () => {
 		const question = document.getElementById('textbox_id').value
-		if (question.length < 2) {
-			return console.log('no text(')
-		}
-		console.log(question)
-		const url = '/api/YandexGPT'
-		setQuestion('lll')
-		let postBody = {
-			text: question,
-		}
-		const res = await fetch(url, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(postBody),
-		})
-		console.log(res)
-		const final = await res.json()
-		if (final) {
-			setBlockquotesFromYandexGPT(final)
-			const utterance = new SpeechSynthesisUtterance(final)
-			window.speechSynthesis.speak(utterance)
-			setTimeToSpeak(true)
-			return setTimeout(() => {
-				setTimeToSpeak(false)
-			}, 10000)
-		}
-		console.log(final)
+
+		const final = await YaGPTSend(question)
+		setBlockquotesFromYandexGPT(final)
+		const utterance = new SpeechSynthesisUtterance(final)
+		window.speechSynthesis.speak(utterance)
+		setTimeToSpeak(true)
+		return setTimeout(() => {
+			setTimeToSpeak(false)
+		}, 10000)
+
 		await setPromptText(final)
 		setQuestion('')
 	}

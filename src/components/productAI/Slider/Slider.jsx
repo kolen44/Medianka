@@ -4,7 +4,7 @@ import { A11y, Navigation, Pagination, Scrollbar } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/scss/navigation'
 import 'swiper/scss/pagination'
-import style from './Slider.module.css'
+import style from '../../../styles/productAI/Slider.module.css'
 
 const Slider = () => {
 	return (
