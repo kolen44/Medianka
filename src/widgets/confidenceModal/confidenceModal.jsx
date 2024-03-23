@@ -4,6 +4,7 @@ import { FiAlertCircle } from 'react-icons/fi'
 
 export const ExampleWrapper = () => {
 	const [isOpen, setIsOpen] = useState(true)
+
 	return <SpringModal isOpen={isOpen} setIsOpen={setIsOpen} />
 }
 

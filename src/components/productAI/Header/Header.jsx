@@ -1,5 +1,7 @@
 'use client'
 import { BubbleText } from '@/widgets/bubbleText/bubble'
+import ButtonWrapper from '@/widgets/hoverButton/hoverButton'
+import { ShiftingDropDown } from '@/widgets/linksHeader/links'
 import Link from 'next/link'
 import style from '../../../styles/productAI/Header.module.css'
 
@@ -11,11 +13,9 @@ const Header = () => {
 					<BubbleText text={`Медянка`} />
 				</p>
 				<div className={style.nav}>
-					<p>Hi</p>
+					<ShiftingDropDown />
 				</div>
-				<Link className={style.btn} href='/'>
-					Открыть приложение
-				</Link>
+				<ButtonWrapper text={'Начать'} />
 			</div>
 			<p className={style.mainText}>
 				<BubbleText text={`НЕЙРОСЕТЬ ДЛЯ КАЖДОГО`} />
@@ -29,8 +29,13 @@ const Header = () => {
 						новое каждый день. Давайте начнем приключение!
 					</p>
 					<div className={style.btns}>
-						<button className={style.more}>Узнать больше</button>
-						<button>Как это работает?</button>
+						<a href='https://dzen.ru/a/ZPwptT1fPn8vjEr-'>
+							<button className={style.more}>Узнать больше</button>
+						</a>
+
+						<a href='https://itproger.com/news/kak-rabotaet-ii-printsipi-raboti-sovremennogo-ai'>
+							<button>Как это работает?</button>
+						</a>
 					</div>
 				</div>
 			</div>
