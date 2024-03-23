@@ -1,12 +1,13 @@
 .container {
-	height: 120vh;
-	width: 80vw;
+	height: fit-content;
+	background-color: #b422e4;
+	width: 100vw;
 	margin: 0 auto;
+	padding: 5vh 0;
 	gap: 15vw;
 	display: flex;
 	align-items: flex-end;
 	justify-content: space-around;
-	margin-bottom: 10vh;
 }
 
 .container div {
