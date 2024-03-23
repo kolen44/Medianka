@@ -41,7 +41,7 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
 							<div className='flex gap-2'>
 								<button
 									onClick={() => setIsOpen(false)}
-									className='bg-transparent hover:bg-white/10 transition-colors text-white font-semibold w-full py-2 rounded'
+									className='bg-transparent hover:bg-white/10 transition-colors text-white font-semibold w-full py-2 rounded pointer-events-auto'
 								>
 									<a href='https://github.com/kolen44/Medianka/blob/main/confidence.md'>
 										Политика конфиденциальности
@@ -49,7 +49,7 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
 								</button>
 								<button
 									onClick={() => setIsOpen(false)}
-									className='bg-white hover:opacity-90 transition-opacity text-indigo-600 font-semibold w-full py-2 rounded'
+									className='bg-white hover:opacity-90 transition-opacity text-indigo-600 font-semibold w-full py-2 rounded pointer-events-auto'
 								>
 									Соглашаюсь!
 								</button>
