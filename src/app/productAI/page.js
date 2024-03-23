@@ -1,5 +1,6 @@
 'use client'
 import MainPage from '../../components/ProductAI/MainPage'
+import '../globals.css'
 import './index.css'
 
 function Page() {

@@ -29,13 +29,6 @@
 	gap: 5vw;
 }
 
-.nav p {
-	font-size: 20px;
-	color: #717171;
-	cursor: pointer;
-	transition: 0.1s;
-}
-
 .nav p:hover {
 	font-size: 21px;
 }

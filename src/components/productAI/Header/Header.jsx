@@ -11,9 +11,7 @@ const Header = () => {
 					<BubbleText text={`Медянка`} />
 				</p>
 				<div className={style.nav}>
-					<p>Продукты</p>
-					<p>Центр помощи</p>
-					<p>Контакты</p>
+					<p>Hi</p>
 				</div>
 				<Link className={style.btn} href='/'>
 					Открыть приложение
