@@ -1,4 +1,5 @@
 'use client'
+import { BubbleText } from '@/widgets/bubbleText/bubble'
 import 'swiper/css'
 import { A11y, Navigation, Pagination, Scrollbar } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -9,7 +10,9 @@ import style from '../../../styles/productAI/Slider.module.css'
 const Slider = () => {
 	return (
 		<div className={style.main}>
-			<p className={style.text}>Как я могу помочь?</p>
+			<p className={style.text}>
+				<BubbleText text={`Как я могу помочь?`} />
+			</p>
 			<div className={style.slider}>
 				<Swiper
 					spaceBetween={50}

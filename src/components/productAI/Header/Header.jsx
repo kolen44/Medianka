@@ -1,4 +1,5 @@
 'use client'
+import { BubbleText } from '@/widgets/bubbleText/bubble'
 import Link from 'next/link'
 import style from '../../../styles/productAI/Header.module.css'
 
@@ -6,7 +7,9 @@ const Header = () => {
 	return (
 		<div className={style.head}>
 			<div className={style.header}>
-				<p className={style.logo}>Медянка</p>
+				<p className={style.logo}>
+					<BubbleText text={`Медянка`} />
+				</p>
 				<div className={style.nav}>
 					<p>Продукты</p>
 					<p>Центр помощи</p>
@@ -16,7 +19,9 @@ const Header = () => {
 					Открыть приложение
 				</Link>
 			</div>
-			<p className={style.mainText}>НЕЙРОСЕТЬ ДЛЯ КАЖДОГО</p>
+			<p className={style.mainText}>
+				<BubbleText text={`НЕЙРОСЕТЬ ДЛЯ КАЖДОГО`} />
+			</p>
 			<div className={style.card}>
 				<img src='/productAI/profile.png' alt='фото профиля' />
 				<div>
@@ -33,7 +38,9 @@ const Header = () => {
 			</div>
 			<div className={style.medText}>
 				<p className={style.med}>Привет, меня зовут Медянка! Давай поиграем?</p>
-				<img src='/productAI/yellow.png' alt='плохое интернет соединение' />
+				<Link href={'/'}>
+					<img src='/productAI/yellow.png' alt='плохое интернет соединение' />
+				</Link>
 			</div>
 		</div>
 	)

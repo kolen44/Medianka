@@ -1,4 +1,5 @@
 'use client'
+import { BubbleText } from '@/widgets/bubbleText/bubble'
 import {
 	Environment,
 	Gltf,
@@ -48,19 +49,37 @@ export default function Castle() {
 					>
 						<div className={style.main}>
 							<div>
-								<h3 className={style.h3}>Сферы применения :</h3>
+								<h3 className={style.h3}>
+									<BubbleText text={`Сферы применения :`} />
+								</h3>
 								<div className={style.menu}>
 									<div className='pr-10 text-xl'>
-										<p>Парки</p>
-										<p>Достопримечательности</p>
-										<p>Гостиницы</p>
-										<p>Аптеки</p>
+										<p>
+											<BubbleText text={`Парки`} />
+										</p>
+										<p>
+											<BubbleText text={`Достопримечательности`} />
+										</p>
+										<p>
+											<BubbleText text={`Гостиницы`} />
+										</p>
+										<p>
+											<BubbleText text={`Аптеки`} />
+										</p>
 									</div>
 									<div className='pl-10 text-xl'>
-										<p>Интерактивные площадки</p>
-										<p>Торговые центры</p>
-										<p>Банкоматы</p>
-										<p>Транспорт</p>
+										<p>
+											<BubbleText text={`Интерактивные площадки`} />
+										</p>
+										<p>
+											<BubbleText text={`Торговые центры`} />
+										</p>
+										<p>
+											<BubbleText text={`Банкоматы`} />
+										</p>
+										<p>
+											<BubbleText text={`Транспорт`} />
+										</p>
 									</div>
 								</div>
 							</div>

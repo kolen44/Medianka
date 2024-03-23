@@ -1,4 +1,5 @@
 import { handlerSendYaGPT } from '@/feautures/productAI/handlerSendYaGPT'
+import { BubbleText } from '@/widgets/bubbleText/bubble'
 import { useState } from 'react'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -14,7 +15,9 @@ const SectionInput = () => {
 	}
 	return (
 		<div className={style.main} id='sectioninput'>
-			<p className={style.text}>Что я умею?</p>
+			<p className={style.text}>
+				<BubbleText text={`Что я умею?`} />
+			</p>
 			<form className={style.form}>
 				<input
 					type='text'
