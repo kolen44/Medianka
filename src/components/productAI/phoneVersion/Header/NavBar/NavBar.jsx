@@ -1,3 +1,4 @@
+import { navStore } from '@/data/productAI/phoneVersion/store/navStore'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
 import {
@@ -18,6 +19,7 @@ const IconSideNav = () => {
 
 const SideNav = () => {
 	const [selected, setSelected] = useState(0)
+	const setPageNumber = navStore(store => store.setPageNumber)
 
 	return (
 		// NOTE: In prod, you'd likely set height to h-screen and fix to the viewport
@@ -38,21 +40,51 @@ const SideNav = () => {
 					fill='#FFFFFF'
 				></path>
 			</svg>
-			<NavItem selected={selected === 0} id={0} setSelected={setSelected}>
-				<AiFillPlayCircle />
-			</NavItem>
-			<NavItem selected={selected === 1} id={1} setSelected={setSelected}>
-				<AiFillQuestionCircle />
-			</NavItem>
-			<NavItem selected={selected === 2} id={2} setSelected={setSelected}>
-				<AiFillMessage />
-			</NavItem>
-			<NavItem selected={selected === 3} id={3} setSelected={setSelected}>
-				<AiFillSliders />
-			</NavItem>
-			<NavItem selected={selected === 4} id={4} setSelected={setSelected}>
-				<VscAccount />
-			</NavItem>
+			<div
+				onClick={() => {
+					setPageNumber(1)
+				}}
+			>
+				<NavItem selected={selected === 0} id={0} setSelected={setSelected}>
+					<AiFillPlayCircle />
+				</NavItem>
+			</div>
+			<div
+				onClick={() => {
+					setPageNumber(2)
+				}}
+			>
+				<NavItem selected={selected === 1} id={1} setSelected={setSelected}>
+					<AiFillQuestionCircle />
+				</NavItem>
+			</div>
+			<div
+				onClick={() => {
+					setPageNumber(3)
+				}}
+			>
+				<NavItem selected={selected === 2} id={2} setSelected={setSelected}>
+					<AiFillMessage />
+				</NavItem>
+			</div>
+			<div
+				onClick={() => {
+					setPageNumber(4)
+				}}
+			>
+				<NavItem selected={selected === 3} id={3} setSelected={setSelected}>
+					<AiFillSliders />
+				</NavItem>
+			</div>
+			<div
+				onClick={() => {
+					setPageNumber(5)
+				}}
+			>
+				<NavItem selected={selected === 4} id={4} setSelected={setSelected}>
+					<VscAccount />
+				</NavItem>
+			</div>
 		</nav>
 	)
 }
