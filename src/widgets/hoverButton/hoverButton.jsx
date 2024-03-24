@@ -23,11 +23,6 @@ const ButtonWrapper = ({ text }) => {
 
 		btnRef.current.addEventListener('mousemove', handleMouseMove)
 		btnRef.current.addEventListener('mouseleave', handleMouseLeave)
-
-		return () => {
-			btnRef.current.removeEventListener('mousemove', handleMouseMove)
-			btnRef.current.removeEventListener('mouseleave', handleMouseLeave)
-		}
 	}, [])
 
 	return (

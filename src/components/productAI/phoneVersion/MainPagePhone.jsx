@@ -6,7 +6,7 @@ import './main.css'
 
 const MainPagePhone = () => {
 	return (
-		<div className='bg-slate-900'>
+		<div className='bg-slate-900 phoneVersionDiv'>
 			<Header />
 			<Main />
 		</div>
