@@ -4,7 +4,7 @@ import { navStore } from '@/data/productAI/phoneVersion/store/navStore'
 import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
 import Header from './Header/Header'
-
+ 
 import './main.css'
 
 const MainPagePhone = () => {

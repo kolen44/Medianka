@@ -1,6 +1,6 @@
 'use client'
 import { BubbleText } from '@/widgets/bubbleText/bubble'
-import ButtonWrapper from '@/widgets/hoverButton/hoverButton'
+import { HoverButton } from '@/widgets/hoverButton/hoverButton'
 import { ShiftingDropDown } from '@/widgets/linksHeader/links'
 import Link from 'next/link'
 import style from '../../../styles/productAI/Header.module.css'
@@ -15,13 +15,18 @@ const Header = () => {
 				<div className={style.nav}>
 					<ShiftingDropDown />
 				</div>
-				<ButtonWrapper text={'Начать'} />
+				<HoverButton text={'Начать'} />
 			</div>
 			<p className={style.mainText}>
 				<BubbleText text={`НЕЙРОСЕТЬ ДЛЯ КАЖДОГО`} />
 			</p>
 			<div className={style.card}>
-				<img src='/productAI/profile.png' alt='фото профиля' />
+				<img
+					src='/productAI/profile.png'
+					alt='фото профиля'
+					height={500}
+					width={767}
+				/>
 				<div>
 					<h2>Добро пожаловать! Я медянка</h2>
 					<p className={style.about}>

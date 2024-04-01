@@ -7,11 +7,15 @@ import style from '../../../styles/productAI/SectionInput.module.css'
 
 const SectionInput = () => {
 	const [text, setText] = useState(false)
+	const [textInInput, setTextInInput] = useState('')
 
 	async function ask() {
-		const requestText = document.getElementById('game4two').value
-		const res = await handlerSendYaGPT(requestText)
-		setText(res)
+		if (textInInput.length > 5) {
+			const res = await handlerSendYaGPT(requestText)
+			setText(res)
+		} else {
+			setText('Введите хотя бы 5 символов 🥺')
+		}
 	}
 	return (
 		<div className={style.main} id='sectioninput'>
@@ -24,6 +28,7 @@ const SectionInput = () => {
 					className={style.input}
 					id='game4two'
 					placeholder='Напиши загадку'
+					onChange={event => setTextInInput(event.target.value)}
 				/>
 				<button
 					onClick={e => {

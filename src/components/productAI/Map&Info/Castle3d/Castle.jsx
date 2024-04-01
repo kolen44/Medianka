@@ -1,13 +1,6 @@
 'use client'
 import { BubbleText } from '@/widgets/bubbleText/bubble'
-import {
-	Environment,
-	Gltf,
-	Html,
-	OrbitControls,
-	Stats,
-	Text,
-} from '@react-three/drei'
+import { Environment, Gltf, Html, OrbitControls, Text } from '@react-three/drei'
 import { Canvas, useFrame } from '@react-three/fiber'
 import Link from 'next/link'
 import * as THREE from 'three'
@@ -91,7 +84,6 @@ export default function Castle() {
 				</mesh>
 				<OrbitControls />
 				<CameraRig />
-				<Stats />
 			</group>
 		</Canvas>
 	)

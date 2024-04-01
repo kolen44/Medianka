@@ -1,4 +1,4 @@
-export default function Profile() {
+export default function Profile({ Component, pageProps }) {
 	return (
 		<div className='w-screen flex justify-center h-fit '>
 			<h2 className='font-semibold md:font-bold text-lg md:text-xl text-zinc-700'>
