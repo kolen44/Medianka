@@ -39,14 +39,6 @@ export const POST = async (req, res) => {
 				},
 			}
 		)
-		console.log(response.data.result.alternatives[0]['message']['text'])
-		console.log(
-			JSON.stringify(
-				response.data.result.alternatives[0]['message']['text'],
-				null,
-				2
-			)
-		)
 		return new NextResponse(
 			JSON.stringify(response.data.result.alternatives[0]['message']['text']),
 			{
@@ -54,6 +46,13 @@ export const POST = async (req, res) => {
 			}
 		)
 	} catch (err) {
-		console.error('error:', err)
+		return new NextResponse(
+			JSON.stringify(
+				'На сервере отправки запроса произошла ошибка... Возможно нужно обновить API token '
+			),
+			{
+				status: 200,
+			}
+		)
 	}
 }

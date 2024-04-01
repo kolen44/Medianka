@@ -5,9 +5,9 @@ import { useLayoutEffect, useState } from 'react'
 import AvatarCanvas from './AvatarCanvas'
 let widthZ
 export default function Experience() {
-	const [widthBoolean, setWidthBoolean] = useState(0)
+	const [width, setWidth] = useState(0)
 	useLayoutEffect(() => {
-		setWidthBoolean(window.innerWidthBoolean)
+		setWidth(window.innerWidth)
 	})
 	return (
 		<>
@@ -16,7 +16,7 @@ export default function Experience() {
 				camera={{ position: [5, 0, 0], fov: 80 }}
 			>
 				{/* <Effects /> */}
-				{widthBoolean > 768 && <OrbitControls />}
+				{width > 768 && <OrbitControls />}
 				<spotLight
 					angle={0.12}
 					penumbra={0.1}

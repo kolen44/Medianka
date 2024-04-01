@@ -34,7 +34,6 @@ export default function SpeechToText() {
 		const voices = window.speechSynthesis.getVoices()
 		const lastVoice = voices[voices.length - 1]
 		const utterance = new SpeechSynthesisUtterance(final)
-		utterance.voice = lastVoice
 		window.speechSynthesis.speak(utterance)
 		setBlockquotesFromYandexGPT(final)
 		setTimeToSpeak(true)

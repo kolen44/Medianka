@@ -128,9 +128,9 @@
 	.nav {
 		width: 0;
 		height: 0;
-		z-index: -10;
 		margin: 0;
 		padding: 0;
+		z-index: -10;
 	}
 
 	.btn {

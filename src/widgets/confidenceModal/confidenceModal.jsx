@@ -1,23 +1,32 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { FiAlertCircle } from 'react-icons/fi'
 
 export const ExampleWrapper = () => {
-	const [isOpen, setIsOpen] = useState(true)
-
-	return <SpringModal isOpen={isOpen} setIsOpen={setIsOpen} />
+	return <SpringModal />
 }
 
-const SpringModal = ({ isOpen, setIsOpen }) => {
+const SpringModal = () => {
+	const [scroll, setScroll] = useState('hidden')
+	const [confidenceVisibleBoolean, setConfidenceVisibleBoolean] = useState(true)
+	useEffect(() => {
+		if (localStorage.getItem('confidenceVisibleBoolean') == null) {
+			setConfidenceVisibleBoolean(true)
+			document.body.style.overflowY = scroll
+		} else {
+			setConfidenceVisibleBoolean(false)
+		}
+	}, [])
+
 	return (
 		<AnimatePresence>
-			{isOpen && (
+			{confidenceVisibleBoolean && (
 				<motion.div
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					exit={{ opacity: 0 }}
 					onClick={() => setIsOpen(false)}
-					className='bg-slate-900/20 backdrop-blur p-8 fixed inset-0 z-50 grid place-items-center overflow-y-scroll cursor-pointer'
+					className='bg-slate-900/20 backdrop-blur p-8 fixed inset-0 z-50 grid place-items-center cursor-pointer'
 				>
 					<motion.div
 						initial={{ scale: 0, rotate: '12.5deg' }}
@@ -48,7 +57,11 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
 									</a>
 								</button>
 								<button
-									onClick={() => setIsOpen(false)}
+									onClick={() => {
+										setConfidenceVisibleBoolean(false),
+											setScroll('auto'),
+											localStorage.setItem('confidenceVisibleBoolean', 'false')
+									}}
 									className='bg-white hover:opacity-90 transition-opacity text-indigo-600 font-semibold w-1/2 md:w-full py-2 rounded pointer-events-auto'
 								>
 									Соглашаюсь!

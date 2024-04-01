@@ -10,8 +10,10 @@ const SectionInput = () => {
 	const [textInInput, setTextInInput] = useState('')
 
 	async function ask() {
+		console.log(textInInput)
 		if (textInInput.length > 5) {
 			const res = await handlerSendYaGPT(textInInput)
+
 			setText(res)
 		} else {
 			setText('Введите хотя бы 5 символов 🥺')

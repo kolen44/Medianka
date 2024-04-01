@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Khula
+- Font Author: Copyright (c) 2014, Erin McLaughlin (hello@erinmclaughlin.com). Digitized data copyright 2010, Google Corporation.
+- Font Source: https://fonts.gstatic.com/s/khula/v12/OpNCnoEOns3V7FcJpA_chzJ0.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))
