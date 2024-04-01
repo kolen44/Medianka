@@ -11,7 +11,7 @@ const SectionInput = () => {
 
 	async function ask() {
 		if (textInInput.length > 5) {
-			const res = await handlerSendYaGPT(requestText)
+			const res = await handlerSendYaGPT(textInInput)
 			setText(res)
 		} else {
 			setText('Введите хотя бы 5 символов 🥺')
