@@ -9,14 +9,17 @@ export const ExampleWrapper = () => {
 const SpringModal = () => {
 	const [scroll, setScroll] = useState('hidden')
 	const [confidenceVisibleBoolean, setConfidenceVisibleBoolean] = useState(true)
+
 	useEffect(() => {
 		if (localStorage.getItem('confidenceVisibleBoolean') == null) {
 			setConfidenceVisibleBoolean(true)
-			document.body.style.overflowY = scroll
+			setScroll('hidden')
 		} else {
 			setConfidenceVisibleBoolean(false)
+			setScroll('auto')
 		}
-	}, [])
+		document.body.style.overflowY = scroll
+	}, [scroll])
 
 	return (
 		<AnimatePresence>

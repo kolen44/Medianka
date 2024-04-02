@@ -10,9 +10,9 @@ const SectionInput = () => {
 	const [textInInput, setTextInInput] = useState('')
 
 	async function ask() {
-		console.log(textInInput)
 		if (textInInput.length > 5) {
-			const res = await handlerSendYaGPT(textInInput)
+			const text = textInInput.toString()
+			const res = await handlerSendYaGPT(text)
 
 			setText(res)
 		} else {
